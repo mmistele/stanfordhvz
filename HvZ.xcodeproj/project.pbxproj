@@ -7,13 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B790B2DF7BE6EDA62020091 /* Pods_HvZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828EB694E04A35C71828D953 /* Pods_HvZUITests.framework */; };
 		C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3561D0117C2007D76CD /* AppDelegate.swift */; };
-		C956B3591D0117C2007D76CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3581D0117C2007D76CD /* ViewController.swift */; };
 		C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956B35A1D0117C2007D76CD /* Main.storyboard */; };
 		C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */; };
 		C956B3611D0117C2007D76CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C956B3601D0117C2007D76CD /* Assets.xcassets */; };
 		C956B3641D0117C2007D76CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956B3621D0117C2007D76CD /* LaunchScreen.storyboard */; };
 		C956B36F1D0117C2007D76CD /* HvZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B36E1D0117C2007D76CD /* HvZUITests.swift */; };
+		C956B37B1D02AA54007D76CD /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */; };
+		C956B37F1D02C85A007D76CD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B37E1D02C85A007D76CD /* LoginViewController.swift */; };
+		C956B3811D02CAB2007D76CD /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */; };
+		C956B3831D02CAFE007D76CD /* SignupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3821D02CAFE007D76CD /* SignupPasswordViewController.swift */; };
+		C956B3851D02CD3A007D76CD /* SignupNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3841D02CD3A007D76CD /* SignupNumberViewController.swift */; };
+		C956B38B1D02CF39007D76CD /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B38A1D02CF39007D76CD /* StatusViewController.swift */; };
+		C956B38E1D02D2BE007D76CD /* PlayersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */; };
+		C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B38F1D02D386007D76CD /* MissionsTableViewController.swift */; };
+		C956B3921D02D3A2007D76CD /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3911D02D3A2007D76CD /* MissionViewController.swift */; };
+		C956B3941D02D4F8007D76CD /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3931D02D4F8007D76CD /* MessageTableViewCell.swift */; };
+		C956B3961D02D717007D76CD /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3951D02D717007D76CD /* MessageTableViewController.swift */; };
+		C956B3981D02D744007D76CD /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3971D02D744007D76CD /* ConversationsTableViewController.swift */; };
+		C956B39A1D02DB06007D76CD /* RulesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3991D02DB06007D76CD /* RulesPageViewController.swift */; };
+		C956B39C1D02DBEC007D76CD /* InfectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B39B1D02DBEC007D76CD /* InfectionsViewController.swift */; };
+		C956B39E1D02DD09007D76CD /* MissionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */; };
+		C956B3A11D02DFF1007D76CD /* ClanCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */; };
+		C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */; };
+		C96ABEAF1D02E3DC003D3D67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C96ABEAE1D02E3DC003D3D67 /* GoogleService-Info.plist */; };
+		C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */; };
+		C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */; };
+		C990C3151D037A87000547AF /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3011D037A87000547AF /* Mission.swift */; };
+		C990C3161D037A87000547AF /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3021D037A87000547AF /* Player+CoreDataProperties.swift */; };
+		C990C3171D037A87000547AF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3031D037A87000547AF /* Player.swift */; };
+		C990C3181D037A87000547AF /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3041D037A87000547AF /* Tag+CoreDataProperties.swift */; };
+		C990C3191D037A87000547AF /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3051D037A87000547AF /* Tag.swift */; };
+		C990C31A1D037A87000547AF /* Clan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3061D037A87000547AF /* Clan+CoreDataProperties.swift */; };
+		C990C31B1D037A87000547AF /* Clan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3071D037A87000547AF /* Clan.swift */; };
+		C990C31C1D037A87000547AF /* Announcement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3081D037A87000547AF /* Announcement+CoreDataProperties.swift */; };
+		C990C31D1D037A87000547AF /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3091D037A87000547AF /* Announcement.swift */; };
+		C990C31E1D037A87000547AF /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30A1D037A87000547AF /* Message+CoreDataProperties.swift */; };
+		C990C31F1D037A87000547AF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30B1D037A87000547AF /* Message.swift */; };
+		C990C3201D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30C1D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift */; };
+		C990C3211D037A87000547AF /* MissionWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30D1D037A87000547AF /* MissionWaypoint.swift */; };
+		C990C3221D037A87000547AF /* Team+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30E1D037A87000547AF /* Team+CoreDataProperties.swift */; };
+		C990C3231D037A87000547AF /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30F1D037A87000547AF /* Team.swift */; };
+		C990C3241D037A87000547AF /* Badge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3101D037A87000547AF /* Badge+CoreDataProperties.swift */; };
+		C990C3251D037A87000547AF /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3111D037A87000547AF /* Badge.swift */; };
+		C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */; };
+		C990C3271D037A87000547AF /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3131D037A87000547AF /* Conversation.swift */; };
+		CE99EB19B1BDE2E4DF8D1680 /* Pods_HvZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +67,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C50C77105236BD8B3EB5691 /* Pods-HvZUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.release.xcconfig"; sourceTree = "<group>"; };
+		620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HvZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		828EB694E04A35C71828D953 /* Pods_HvZUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HvZUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B3531D0117C2007D76CD /* HvZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HvZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B3561D0117C2007D76CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C956B3581D0117C2007D76CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C956B35B1D0117C2007D76CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C956B35E1D0117C2007D76CD /* HvZ.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HvZ.xcdatamodel; sourceTree = "<group>"; };
 		C956B3601D0117C2007D76CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +80,48 @@
 		C956B36A1D0117C2007D76CD /* HvZUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HvZUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B36E1D0117C2007D76CD /* HvZUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HvZUITests.swift; sourceTree = "<group>"; };
 		C956B3701D0117C2007D76CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
+		C956B37E1D02C85A007D76CD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
+		C956B3821D02CAFE007D76CD /* SignupPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPasswordViewController.swift; sourceTree = "<group>"; };
+		C956B3841D02CD3A007D76CD /* SignupNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupNumberViewController.swift; sourceTree = "<group>"; };
+		C956B38A1D02CF39007D76CD /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
+		C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersTableViewController.swift; sourceTree = "<group>"; };
+		C956B38F1D02D386007D76CD /* MissionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionsTableViewController.swift; sourceTree = "<group>"; };
+		C956B3911D02D3A2007D76CD /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		C956B3931D02D4F8007D76CD /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		C956B3951D02D717007D76CD /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		C956B3971D02D744007D76CD /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
+		C956B3991D02DB06007D76CD /* RulesPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesPageViewController.swift; sourceTree = "<group>"; };
+		C956B39B1D02DBEC007D76CD /* InfectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfectionsViewController.swift; sourceTree = "<group>"; };
+		C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionMapViewController.swift; sourceTree = "<group>"; };
+		C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClanCollectionViewController.swift; path = ../ClanCollectionViewController.swift; sourceTree = "<group>"; };
+		C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanDetailTableViewController.swift; sourceTree = "<group>"; };
+		C96ABEAE1D02E3DC003D3D67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseProfilePicViewController.swift; sourceTree = "<group>"; };
+		C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Mission+CoreDataProperties.swift"; path = "Core Data/Mission+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3011D037A87000547AF /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mission.swift; path = "Core Data/Mission.swift"; sourceTree = "<group>"; };
+		C990C3021D037A87000547AF /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Player+CoreDataProperties.swift"; path = "Core Data/Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3031D037A87000547AF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = "Core Data/Player.swift"; sourceTree = "<group>"; };
+		C990C3041D037A87000547AF /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "Core Data/Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3051D037A87000547AF /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = "Core Data/Tag.swift"; sourceTree = "<group>"; };
+		C990C3061D037A87000547AF /* Clan+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Clan+CoreDataProperties.swift"; path = "Core Data/Clan+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3071D037A87000547AF /* Clan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Clan.swift; path = "Core Data/Clan.swift"; sourceTree = "<group>"; };
+		C990C3081D037A87000547AF /* Announcement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Announcement+CoreDataProperties.swift"; path = "Core Data/Announcement+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3091D037A87000547AF /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Announcement.swift; path = "Core Data/Announcement.swift"; sourceTree = "<group>"; };
+		C990C30A1D037A87000547AF /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Message+CoreDataProperties.swift"; path = "Core Data/Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C30B1D037A87000547AF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "Core Data/Message.swift"; sourceTree = "<group>"; };
+		C990C30C1D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MissionWaypoint+CoreDataProperties.swift"; path = "Core Data/MissionWaypoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C30D1D037A87000547AF /* MissionWaypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionWaypoint.swift; path = "Core Data/MissionWaypoint.swift"; sourceTree = "<group>"; };
+		C990C30E1D037A87000547AF /* Team+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Team+CoreDataProperties.swift"; path = "Core Data/Team+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C30F1D037A87000547AF /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = "Core Data/Team.swift"; sourceTree = "<group>"; };
+		C990C3101D037A87000547AF /* Badge+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Badge+CoreDataProperties.swift"; path = "Core Data/Badge+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3111D037A87000547AF /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Badge.swift; path = "Core Data/Badge.swift"; sourceTree = "<group>"; };
+		C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "Core Data/Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C990C3131D037A87000547AF /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conversation.swift; path = "Core Data/Conversation.swift"; sourceTree = "<group>"; };
+		D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.debug.xcconfig"; sourceTree = "<group>"; };
+		DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED0B2C875B0FD3D89177B6B9 /* Pods-HvZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE99EB19B1BDE2E4DF8D1680 /* Pods_HvZ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +137,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B790B2DF7BE6EDA62020091 /* Pods_HvZUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36B85372473A004B8E9D62D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */,
+				ED0B2C875B0FD3D89177B6B9 /* Pods-HvZ.release.xcconfig */,
+				DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */,
+				1C50C77105236BD8B3EB5691 /* Pods-HvZUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC4F440CF7F89462AD3E66BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */,
+				828EB694E04A35C71828D953 /* Pods_HvZUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C956B34A1D0117C2007D76CD = {
 			isa = PBXGroup;
 			children = (
 				C956B3551D0117C2007D76CD /* HvZ */,
 				C956B36D1D0117C2007D76CD /* HvZUITests */,
 				C956B3541D0117C2007D76CD /* Products */,
+				36B85372473A004B8E9D62D1 /* Pods */,
+				AC4F440CF7F89462AD3E66BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +187,19 @@
 		C956B3551D0117C2007D76CD /* HvZ */ = {
 			isa = PBXGroup;
 			children = (
-				C956B3561D0117C2007D76CD /* AppDelegate.swift */,
-				C956B3581D0117C2007D76CD /* ViewController.swift */,
+				C990C2FF1D037A6A000547AF /* Core Data */,
+				C990C2FC1D035666000547AF /* Offline Demo Data */,
+				C956B3791D029B5B007D76CD /* Supporting Files */,
 				C956B35A1D0117C2007D76CD /* Main.storyboard */,
-				C956B3601D0117C2007D76CD /* Assets.xcassets */,
-				C956B3621D0117C2007D76CD /* LaunchScreen.storyboard */,
-				C956B3651D0117C2007D76CD /* Info.plist */,
+				C956B38A1D02CF39007D76CD /* StatusViewController.swift */,
+				C956B39B1D02DBEC007D76CD /* InfectionsViewController.swift */,
+				C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */,
+				C956B39F1D02DE20007D76CD /* Messaging */,
+				C956B3991D02DB06007D76CD /* RulesPageViewController.swift */,
+				C956B3911D02D3A2007D76CD /* MissionViewController.swift */,
+				C956B38F1D02D386007D76CD /* MissionsTableViewController.swift */,
+				C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */,
+				C956B38C1D02CF42007D76CD /* Login/Signup */,
 				C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */,
 			);
 			path = HvZ;
@@ -99,6 +214,77 @@
 			path = HvZUITests;
 			sourceTree = "<group>";
 		};
+		C956B3791D029B5B007D76CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C956B3561D0117C2007D76CD /* AppDelegate.swift */,
+				C956B3601D0117C2007D76CD /* Assets.xcassets */,
+				C956B3621D0117C2007D76CD /* LaunchScreen.storyboard */,
+				C956B3651D0117C2007D76CD /* Info.plist */,
+				C96ABEAE1D02E3DC003D3D67 /* GoogleService-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C956B38C1D02CF42007D76CD /* Login/Signup */ = {
+			isa = PBXGroup;
+			children = (
+				C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */,
+				C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */,
+				C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */,
+				C956B37E1D02C85A007D76CD /* LoginViewController.swift */,
+				C956B3841D02CD3A007D76CD /* SignupNumberViewController.swift */,
+				C956B3821D02CAFE007D76CD /* SignupPasswordViewController.swift */,
+				C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */,
+				C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */,
+			);
+			name = Login/Signup;
+			sourceTree = "<group>";
+		};
+		C956B39F1D02DE20007D76CD /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				C956B3971D02D744007D76CD /* ConversationsTableViewController.swift */,
+				C956B3951D02D717007D76CD /* MessageTableViewController.swift */,
+				C956B3931D02D4F8007D76CD /* MessageTableViewCell.swift */,
+			);
+			name = Messaging;
+			sourceTree = "<group>";
+		};
+		C990C2FC1D035666000547AF /* Offline Demo Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Offline Demo Data";
+			sourceTree = "<group>";
+		};
+		C990C2FF1D037A6A000547AF /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */,
+				C990C3011D037A87000547AF /* Mission.swift */,
+				C990C3021D037A87000547AF /* Player+CoreDataProperties.swift */,
+				C990C3031D037A87000547AF /* Player.swift */,
+				C990C3041D037A87000547AF /* Tag+CoreDataProperties.swift */,
+				C990C3051D037A87000547AF /* Tag.swift */,
+				C990C3061D037A87000547AF /* Clan+CoreDataProperties.swift */,
+				C990C3071D037A87000547AF /* Clan.swift */,
+				C990C3081D037A87000547AF /* Announcement+CoreDataProperties.swift */,
+				C990C3091D037A87000547AF /* Announcement.swift */,
+				C990C30A1D037A87000547AF /* Message+CoreDataProperties.swift */,
+				C990C30B1D037A87000547AF /* Message.swift */,
+				C990C30C1D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift */,
+				C990C30D1D037A87000547AF /* MissionWaypoint.swift */,
+				C990C30E1D037A87000547AF /* Team+CoreDataProperties.swift */,
+				C990C30F1D037A87000547AF /* Team.swift */,
+				C990C3101D037A87000547AF /* Badge+CoreDataProperties.swift */,
+				C990C3111D037A87000547AF /* Badge.swift */,
+				C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */,
+				C990C3131D037A87000547AF /* Conversation.swift */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +292,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C956B3731D0117C2007D76CD /* Build configuration list for PBXNativeTarget "HvZ" */;
 			buildPhases = (
+				88B4F710CECD48854A5FFE14 /* [CP] Check Pods Manifest.lock */,
 				C956B34F1D0117C2007D76CD /* Sources */,
 				C956B3501D0117C2007D76CD /* Frameworks */,
 				C956B3511D0117C2007D76CD /* Resources */,
+				22105BE01D3F95984102D9ED /* [CP] Embed Pods Frameworks */,
+				0FEDCB69D60284E485E56B10 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +312,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C956B3761D0117C2007D76CD /* Build configuration list for PBXNativeTarget "HvZUITests" */;
 			buildPhases = (
+				39C3CB7D36FF923A929E9C68 /* [CP] Check Pods Manifest.lock */,
 				C956B3661D0117C2007D76CD /* Sources */,
 				C956B3671D0117C2007D76CD /* Frameworks */,
 				C956B3681D0117C2007D76CD /* Resources */,
+				0E187D74454028351FDC969B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,7 +340,7 @@
 				TargetAttributes = {
 					C956B3521D0117C2007D76CD = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RK6VF3JEX9;
+						DevelopmentTeam = 64JLV4C56E;
 					};
 					C956B3691D0117C2007D76CD = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -183,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C956B3641D0117C2007D76CD /* LaunchScreen.storyboard in Resources */,
+				C96ABEAF1D02E3DC003D3D67 /* GoogleService-Info.plist in Resources */,
 				C956B3611D0117C2007D76CD /* Assets.xcassets in Resources */,
 				C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */,
 			);
@@ -197,14 +389,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E187D74454028351FDC969B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FEDCB69D60284E485E56B10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HvZ/Pods-HvZ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22105BE01D3F95984102D9ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HvZ/Pods-HvZ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39C3CB7D36FF923A929E9C68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		88B4F710CECD48854A5FFE14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C956B34F1D0117C2007D76CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C956B3591D0117C2007D76CD /* ViewController.swift in Sources */,
+				C990C3231D037A87000547AF /* Team.swift in Sources */,
+				C990C3151D037A87000547AF /* Mission.swift in Sources */,
+				C956B37F1D02C85A007D76CD /* LoginViewController.swift in Sources */,
+				C956B3831D02CAFE007D76CD /* SignupPasswordViewController.swift in Sources */,
+				C990C31B1D037A87000547AF /* Clan.swift in Sources */,
+				C990C3161D037A87000547AF /* Player+CoreDataProperties.swift in Sources */,
+				C990C3171D037A87000547AF /* Player.swift in Sources */,
+				C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */,
+				C990C3271D037A87000547AF /* Conversation.swift in Sources */,
 				C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */,
+				C956B37B1D02AA54007D76CD /* TitleScreenViewController.swift in Sources */,
+				C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */,
+				C956B38E1D02D2BE007D76CD /* PlayersTableViewController.swift in Sources */,
+				C956B3981D02D744007D76CD /* ConversationsTableViewController.swift in Sources */,
+				C956B38B1D02CF39007D76CD /* StatusViewController.swift in Sources */,
+				C956B3961D02D717007D76CD /* MessageTableViewController.swift in Sources */,
+				C990C31F1D037A87000547AF /* Message.swift in Sources */,
+				C990C3201D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift in Sources */,
+				C990C31C1D037A87000547AF /* Announcement+CoreDataProperties.swift in Sources */,
+				C990C3191D037A87000547AF /* Tag.swift in Sources */,
+				C956B3A11D02DFF1007D76CD /* ClanCollectionViewController.swift in Sources */,
+				C956B3941D02D4F8007D76CD /* MessageTableViewCell.swift in Sources */,
+				C956B39A1D02DB06007D76CD /* RulesPageViewController.swift in Sources */,
+				C990C31E1D037A87000547AF /* Message+CoreDataProperties.swift in Sources */,
+				C990C31D1D037A87000547AF /* Announcement.swift in Sources */,
+				C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */,
+				C990C3181D037A87000547AF /* Tag+CoreDataProperties.swift in Sources */,
+				C990C3241D037A87000547AF /* Badge+CoreDataProperties.swift in Sources */,
+				C990C3221D037A87000547AF /* Team+CoreDataProperties.swift in Sources */,
+				C956B3851D02CD3A007D76CD /* SignupNumberViewController.swift in Sources */,
+				C956B3811D02CAB2007D76CD /* SignupNameViewController.swift in Sources */,
+				C956B39C1D02DBEC007D76CD /* InfectionsViewController.swift in Sources */,
+				C990C31A1D037A87000547AF /* Clan+CoreDataProperties.swift in Sources */,
+				C956B3921D02D3A2007D76CD /* MissionViewController.swift in Sources */,
+				C990C3211D037A87000547AF /* MissionWaypoint.swift in Sources */,
+				C956B39E1D02DD09007D76CD /* MissionMapViewController.swift in Sources */,
 				C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */,
+				C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */,
+				C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */,
+				C990C3251D037A87000547AF /* Badge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,28 +640,37 @@
 		};
 		C956B3741D0117C2007D76CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HvZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.mmistele.HvZ;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.HvZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		C956B3751D0117C2007D76CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED0B2C875B0FD3D89177B6B9 /* Pods-HvZ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HvZ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.mmistele.HvZ;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.HvZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		C956B3771D0117C2007D76CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = HvZUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -366,6 +682,7 @@
 		};
 		C956B3781D0117C2007D76CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C50C77105236BD8B3EB5691 /* Pods-HvZUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = HvZUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -394,6 +711,7 @@
 				C956B3751D0117C2007D76CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C956B3761D0117C2007D76CD /* Build configuration list for PBXNativeTarget "HvZUITests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +720,7 @@
 				C956B3781D0117C2007D76CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
