@@ -15,81 +15,90 @@ import UIKit
 class DummyStore {
     static func preloadData(inManagedObjectContext context: NSManagedObjectContext) {
         
-        let mod1 = Player.playerWithUniqueId(
-            "mod1",
-            inContext: context,
-            firstName: "Mike",
-            lastName: "Moderator",
-            cellNumber: "3059159192",
-            password: "password",
-            imageData: SampleProfileImages![0],
-            isModerator: true,
-            latitude: 37.423987,
-            longitude: -122.170908,
-            clanName: "ModSquad",
-            teamName: Team.HumanTeamName,
-            badges: [])
+        if let player = Player.playerWithUniqueId("mod1", inContext: context) {
+            player.firstName = "Mike"
+            player.lastName = "Moderator"
+            player.cellNumber = "3059159192"
+            player.password = "password"
+            player.image = SampleProfileImages![0]
+            player.isModerator = true
+            player.isOZ = false
+            player.latitude = 37.423987
+            player.longitude = -122.170908
+            player.clan = Clan.clanNamed("Mod Squad", inManagedObjectContext: context)
+            player.badges = []
+            
+            player.teamName = "Moderators"
+            player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
+        }
         
-        let oz1 = Player.playerWithUniqueId(
-            "oz1",
-            inContext: context,
-            firstName: "Trevor",
-            lastName: "Kalkus",
-            cellNumber: "1234567899",
-            password: "password",
-            imageData: SampleProfileImages![1],
-            isModerator: false,
-            latitude: 37.424987,
-            longitude: -122.171908,
-            clanName: "Original Zombies",
-            teamName: Team.ZombieTeamName,
-            badges: [])
+        if let player = Player.playerWithUniqueId("oz1", inContext: context) {
+            player.firstName = "Michael"
+            player.lastName = "Hang"
+            player.cellNumber = "1234567899"
+            player.password = "password"
+            player.image = SampleProfileImages![1]
+            player.isModerator = false
+            player.isOZ = true
+            player.latitude = 37.424987
+            player.longitude = -122.171908
+            player.clan = Clan.clanNamed("Mike's Zombies", inManagedObjectContext: context)
+            player.badges = []
+            
+            player.teamName = Team.ZombieTeamName
+            player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
+        }
         
-        let oz2 = Player.playerWithUniqueId(
-            "oz2",
-            inContext: context,
-            firstName: "Tudor",
-            lastName: "Sandu",
-            cellNumber: "1234567890",
-            password: "password",
-            imageData: SampleProfileImages![2],
-            isModerator: false,
-            latitude: 37.424001,
-            longitude: -122.171001,
-            clanName: nil,
-            teamName: Team.ZombieTeamName,
-            badges: [])
+        if let player = Player.playerWithUniqueId("oz2", inContext: context) {
+            player.firstName = "Tudor"
+            player.lastName = "Sandu"
+            player.cellNumber = "1234567890"
+            player.password = "password"
+            player.image = SampleProfileImages![2]
+            player.isModerator = false
+            player.isOZ = true
+            player.latitude = 37.424001
+            player.longitude = -122.171001
+            player.clan = nil // TEST
+            player.badges = []
+            
+            player.teamName = Team.ZombieTeamName
+            player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
+        }
         
-        let human1 = Player.playerWithUniqueId(
-            "human1",
-            inContext: context,
-            firstName: "Eli",
-            lastName: "Wu",
-            cellNumber: "1234567891",
-            password: "password",
-            imageData: SampleProfileImages![5],
-            isModerator: false,
-            latitude: 37.424787,
-            longitude: -122.170908,
-            clanName: "Doominators",
-            teamName: Team.HumanTeamName,
-            badges: [])
-        
-        let human2 = Player.playerWithUniqueId(
-            "human2",
-            inContext: context,
-            firstName: "Janet",
-            lastName: "Coleman Belin",
-            cellNumber: "1234567892",
-            password: "password",
-            imageData: SampleProfileImages![6],
-            isModerator: false,
-            latitude: 37.424887,
-            longitude: -122.170808,
-            clanName: "Doominators",
-            teamName: Team.HumanTeamName,
-            badges: [])
-        
+        if let player = Player.playerWithUniqueId("p1", inContext: context) {
+            player.firstName = "Eli"
+            player.lastName = "Wu"
+            player.cellNumber = "1234567891"
+            player.password = "password"
+            player.image = SampleProfileImages![5]
+            player.isModerator = false
+            player.isOZ = false
+            player.latitude = 37.425231
+            player.longitude = -122.172001
+            player.clan = Clan.clanNamed("Doominators", inManagedObjectContext: context)
+            player.badges = []
+            
+            player.teamName = Team.HumanTeamName
+            player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
+        }
+       
+        if let player = Player.playerWithUniqueId("p2", inContext: context) {
+            player.firstName = "Janet"
+            player.lastName = "Coleman Belin"
+            player.cellNumber = "1234567892"
+            player.password = "password"
+            player.image = SampleProfileImages![6]
+            player.isModerator = false
+            player.isOZ = false
+            player.latitude = 37.422231
+            player.longitude = -122.173001
+            player.clan = Clan.clanNamed("Doominators", inManagedObjectContext: context)
+            player.badges = []
+            
+            player.teamName = Team.HumanTeamName
+            player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
+        }
     }
     
     static var SampleProfileImages: [NSData]? {

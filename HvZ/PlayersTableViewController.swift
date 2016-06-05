@@ -119,8 +119,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                     playerCell.nameLabel?.text = firstName! + " " + lastName!
                 }
                 
-                if teamName! == "Humans" {
-                    playerCell.tagLabel.removeFromSuperview()
+                if teamName! == Team.HumanTeamName {
                     if clan != nil {
                         playerCell.clanLabel?.text = "Clan: \(clan!.name!)"
                     } else {
@@ -128,7 +127,13 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                     }
                 } else {
                     playerCell.clanLabel.removeFromSuperview()
+                    
+                }
+                
+                if teamName! == Team.ZombieTeamName {
                     playerCell.tagLabel?.text = "Tags: \(tagCount!)"
+                } else {
+                    playerCell.tagLabel.removeFromSuperview()
                 }
             }
         }

@@ -14,18 +14,7 @@ class Player: NSManagedObject {
 
     class func playerWithUniqueId(
         unique: String,
-        inContext context: NSManagedObjectContext,
-                  firstName: String,
-                  lastName: String,
-                  cellNumber: String?,
-                  password: String,
-                  imageData: NSData?,
-                  isModerator: Bool,
-                  latitude: Double,
-                  longitude: Double,
-                  clanName: String?,
-                  teamName: String,
-                  badges: [String]) -> Player? {
+        inContext context: NSManagedObjectContext) -> Player? {
         
         let request = NSFetchRequest(entityName: "Player")
         request.predicate = NSPredicate(format: "unique = %@", unique)
@@ -34,24 +23,10 @@ class Player: NSManagedObject {
             return player
         }
         else if let player = NSEntityDescription.insertNewObjectForEntityForName("Player", inManagedObjectContext: context) as? Player {
-            player.firstName = firstName
-            player.lastName = lastName
             player.unique = unique
-            player.cellNumber = cellNumber
-            player.password = password
-            player.image = imageData
-            player.isModerator = isModerator
-            player.latitude = latitude
-            player.longitude = longitude
-            player.teamName = teamName
-            player.badges = badges
-            
-            player.team = Team.teamNamed(teamName, inManagedObjectContext: context)
-            if clanName != nil {
-                player.clan = Clan.clanNamed(clanName!, inManagedObjectContext: context)
-            }
             return player
         }
+        
         return nil
     }
 
