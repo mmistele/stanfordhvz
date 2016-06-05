@@ -9,9 +9,26 @@
 import Foundation
 import CoreData
 
-
 class Team: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+    
+    // Insert code here to add functionality to your managed object subclass
+    
+    class func teamWithName(name: String, inManagedObjectContext context: NSManagedObjectContext) -> Team?
+    {
+        let request = NSFetchRequest(entityName: "Team")
+        request.predicate = NSPredicate(format: "name = %@", name)
+        
+        if let team = (try? context.executeFetchRequest(request))?.first as? Team {
+            return team
+        } else if let team = NSEntityDescription.insertNewObjectForEntityForName("Team", inManagedObjectContext: context) as? Team {
+            team.name = name
+            return team
+        }
+        
+        return nil
+    }
+    
+    static let ZombieTeamName = "zombie"
+    static let HumanTeamName = "human"
+    
 }
