@@ -51,7 +51,7 @@
         <relationship name="mission" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mission" inverseName="waypoints" inverseEntity="Mission" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName=".Player" syncable="YES">
-        <attribute name="cellNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cellNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isModerator" optional="YES" attributeType="Boolean" syncable="YES"/>

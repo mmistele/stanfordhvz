@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MissionsTableViewController: UITableViewController {
+class MissionsTableViewController: CoreDataTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

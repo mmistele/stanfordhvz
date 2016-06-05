@@ -14,7 +14,7 @@ import CoreData
 
 extension Player {
 
-    @NSManaged var cellNumber: NSNumber?
+    @NSManaged var cellNumber: String?
     @NSManaged var firstName: String?
     @NSManaged var image: NSData?
     @NSManaged var isModerator: NSNumber?
