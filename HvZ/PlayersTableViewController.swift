@@ -74,8 +74,8 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         super.viewDidLoad()
         DummyStore.preloadData(inManagedObjectContext: managedObjectContext!)
         updatePlayerSearch()
-        tableView.estimatedRowHeight = 50 // tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100 // tableView.rowHeight
+        tableView.rowHeight = 100 // UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
