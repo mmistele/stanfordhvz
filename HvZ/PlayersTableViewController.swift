@@ -74,8 +74,8 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         super.viewDidLoad()
         DummyStore.preloadData(inManagedObjectContext: managedObjectContext!)
         updatePlayerSearch()
-        tableView.estimatedRowHeight = 100 // tableView.rowHeight
-        tableView.rowHeight = 100 // UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 80 //tableView.rowHeight
+        tableView.rowHeight = 80 // UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,21 +121,23 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                     playerCell.nameLabel?.text = firstName! + " " + lastName!
                 }
                 
-                if teamName! == Team.HumanTeamName {
-                    if clan != nil {
-                        playerCell.clanLabel?.text = "Clan: \(clan!.name!)"
-                    } else {
-                        playerCell.clanLabel?.text = "Of No Clan"
-                    }
+                if clan != nil {
+                    playerCell.clanLabel?.text = "Clan: \(clan!.name!)"
                 } else {
-                    playerCell.clanLabel?.removeFromSuperview()
-                    
+                    playerCell.clanLabel?.text = "Of No Clan"
+                }
+                playerCell.tagLabel?.text = "Tags: \(tagCount!)"
+                
+                if teamName! == Team.HumanTeamName {
+                    playerCell.clanLabel?.hidden = false
+                } else {
+                    playerCell.clanLabel?.hidden = true
                 }
                 
                 if teamName! == Team.ZombieTeamName {
-                    playerCell.tagLabel?.text = "Tags: \(tagCount!)"
+                    playerCell.tagLabel?.hidden = false
                 } else {
-                    playerCell.tagLabel?.removeFromSuperview()
+                    playerCell.tagLabel?.hidden = true
                 }
                 
                 // Filling Badge[] from the Core Data NSArray
