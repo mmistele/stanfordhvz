@@ -26,7 +26,7 @@ class DummyStore {
             player.latitude = 37.423987
             player.longitude = -122.170908
             player.clan = Clan.clanNamed("Mod Squad", inManagedObjectContext: context)
-            player.badges = []
+            player.badges = NSArray(array: ["OZ"])
             
             player.teamName = "Moderators"
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
@@ -43,7 +43,7 @@ class DummyStore {
             player.latitude = 37.424987
             player.longitude = -122.171908
             player.clan = Clan.clanNamed("Mike's Zombies", inManagedObjectContext: context)
-            player.badges = []
+            player.badges = NSArray(array: ["OZ"])
             
             player.teamName = Team.ZombieTeamName
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
@@ -60,7 +60,7 @@ class DummyStore {
             player.latitude = 37.424001
             player.longitude = -122.171001
             player.clan = nil // TEST
-            player.badges = []
+            player.badges = NSArray(array: ["OZ"])
             
             player.teamName = Team.ZombieTeamName
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
@@ -77,7 +77,7 @@ class DummyStore {
             player.latitude = 37.425231
             player.longitude = -122.172001
             player.clan = Clan.clanNamed("Doominators", inManagedObjectContext: context)
-            player.badges = []
+            player.badges = NSArray(array: ["OZ"])
             
             player.teamName = Team.HumanTeamName
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
@@ -94,7 +94,7 @@ class DummyStore {
             player.latitude = 37.422231
             player.longitude = -122.173001
             player.clan = Clan.clanNamed("Doominators", inManagedObjectContext: context)
-            player.badges = []
+            player.badges = NSArray(array: ["OZ"])
             
             player.teamName = Team.HumanTeamName
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)

@@ -55,6 +55,7 @@
 		C990C33A1D03C09C000547AF /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3381D03C09C000547AF /* Player+CoreDataProperties.swift */; };
 		C990C33B1D03C09C000547AF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3391D03C09C000547AF /* Player.swift */; };
 		C990C33D1D03D999000547AF /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C33C1D03D999000547AF /* Badge.swift */; };
+		C990C3411D03E6A0000547AF /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3401D03E6A0000547AF /* BadgeCollectionViewCell.swift */; };
 		CE99EB19B1BDE2E4DF8D1680 /* Pods_HvZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		C990C3381D03C09C000547AF /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3391D03C09C000547AF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C990C33C1D03D999000547AF /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		C990C3401D03E6A0000547AF /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.debug.xcconfig"; sourceTree = "<group>"; };
 		DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0B2C875B0FD3D89177B6B9 /* Pods-HvZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,8 +198,9 @@
 				C956B3791D029B5B007D76CD /* Supporting Files */,
 				C956B35A1D0117C2007D76CD /* Main.storyboard */,
 				C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */,
-				C990C33C1D03D999000547AF /* Badge.swift */,
 				C990C32C1D03810A000547AF /* PlayerTableViewCell.swift */,
+				C990C33C1D03D999000547AF /* Badge.swift */,
+				C990C3401D03E6A0000547AF /* BadgeCollectionViewCell.swift */,
 				C956B38A1D02CF39007D76CD /* StatusViewController.swift */,
 				C956B39B1D02DBEC007D76CD /* InfectionsViewController.swift */,
 				C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */,
@@ -500,6 +503,7 @@
 				C990C3201D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift in Sources */,
 				C990C31C1D037A87000547AF /* Announcement+CoreDataProperties.swift in Sources */,
 				C990C3191D037A87000547AF /* Tag.swift in Sources */,
+				C990C3411D03E6A0000547AF /* BadgeCollectionViewCell.swift in Sources */,
 				C956B3A11D02DFF1007D76CD /* ClanCollectionViewController.swift in Sources */,
 				C956B3941D02D4F8007D76CD /* MessageTableViewCell.swift in Sources */,
 				C956B39A1D02DB06007D76CD /* RulesPageViewController.swift in Sources */,

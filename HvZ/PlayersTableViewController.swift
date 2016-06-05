@@ -74,8 +74,8 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         super.viewDidLoad()
         DummyStore.preloadData(inManagedObjectContext: managedObjectContext!)
         updatePlayerSearch()
-        tableView.estimatedRowHeight = 100 // tableView.rowHeight
-        tableView.rowHeight = 100 // UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50 // tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,6 +97,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
             var clan: Clan?
             var tagCount: NSNumber?
             var image: NSData?
+            var badgeTitles: NSArray?
             
             player.managedObjectContext?.performBlockAndWait {
                 teamName = player.teamName
@@ -105,6 +106,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                 clan = player.clan
                 tagCount = player.tagCount
                 image = player.image
+                badgeTitles = player.badges as? NSArray
             }
             
             if let playerCell = cell as? PlayerTableViewCell {
@@ -126,14 +128,27 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                         playerCell.clanLabel?.text = "Of No Clan"
                     }
                 } else {
-                    playerCell.clanLabel.removeFromSuperview()
+                    playerCell.clanLabel?.removeFromSuperview()
                     
                 }
                 
                 if teamName! == Team.ZombieTeamName {
                     playerCell.tagLabel?.text = "Tags: \(tagCount!)"
                 } else {
-                    playerCell.tagLabel.removeFromSuperview()
+                    playerCell.tagLabel?.removeFromSuperview()
+                }
+                
+                // Filling Badge[] from the Core Data NSArray
+                if badgeTitles != nil {
+                    var badgesArray = [Badge]()
+                    for item in badgeTitles! {
+                        if let title = item as? String {
+                            if let badge = Badge.badges[title] {
+                                badgesArray.append(badge)
+                            }
+                        }
+                    }
+                    playerCell.badges = badgesArray
                 }
             }
         }
