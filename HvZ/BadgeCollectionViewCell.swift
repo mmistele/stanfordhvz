@@ -12,4 +12,21 @@ class BadgeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var badge: Badge? {
+        didSet {
+            imageView.image = badge?.image
+        }
+    }
+    
+}
+
+class FancierBadgeCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var badge: Badge? {
+        didSet {
+            imageView.image = badge?.image
+        }
+    }
 }

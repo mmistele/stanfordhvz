@@ -30,6 +30,9 @@ class DummyStore {
             
             player.teamName = "Moderators"
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
+            
+            // Fake login
+            (UIApplication.sharedApplication().delegate as? AppDelegate)?.currentUser = player
         }
         
         if let player = Player.playerWithUniqueId("oz1", inContext: context) {
@@ -99,6 +102,7 @@ class DummyStore {
             player.teamName = Team.HumanTeamName
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
         }
+        
     }
     
     static var SampleProfileImages: [NSData]? {

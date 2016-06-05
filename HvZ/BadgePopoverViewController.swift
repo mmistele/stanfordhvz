@@ -1,24 +1,22 @@
 //
-//  StatusViewController.swift
+//  BadgePopoverViewController.swift
 //  HvZ
 //
-//  Created by Matthew Mistele on 6/4/16.
+//  Created by Matthew Mistele on 6/5/16.
 //  Copyright © 2016 Matthew Mistele. All rights reserved.
 //
 
 import UIKit
 
-class StatusViewController: UIViewController {
+class BadgePopoverViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -32,15 +30,4 @@ class StatusViewController: UIViewController {
     }
     */
 
-}
-
-/// Extension to make prepareForSegue() cleaner.
-extension UIViewController {
-    var contentViewController: UIViewController {
-        if let navcon = self as? UINavigationController {
-            return navcon.visibleViewController!
-        } else {
-            return self
-        }
-    }
 }

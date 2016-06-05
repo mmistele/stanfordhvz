@@ -25,4 +25,15 @@ struct Badge {
             }
     ]
     
+    // If we want to turn it into a class, uncomment this
+//    init (title: String,
+//          description: String,
+//          image: UIImage?,
+//          test: (Player) -> Bool) {
+//        self.title = title
+//        self.description = description
+//        self.image = image
+//        self.test = test
+//    }
+    
 }

@@ -50,12 +50,15 @@
 		C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */; };
 		C990C3271D037A87000547AF /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3131D037A87000547AF /* Conversation.swift */; };
 		C990C3291D037DCB000547AF /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3281D037DCB000547AF /* CoreDataTableViewController.swift */; };
-		C990C32D1D03810A000547AF /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C32C1D03810A000547AF /* PlayerTableViewCell.swift */; };
+		C990C32D1D03810A000547AF /* PlayersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C32C1D03810A000547AF /* PlayersTableViewCell.swift */; };
 		C990C32F1D0396CF000547AF /* DummyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C32E1D0396CF000547AF /* DummyStore.swift */; };
 		C990C33A1D03C09C000547AF /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3381D03C09C000547AF /* Player+CoreDataProperties.swift */; };
 		C990C33B1D03C09C000547AF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3391D03C09C000547AF /* Player.swift */; };
 		C990C33D1D03D999000547AF /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C33C1D03D999000547AF /* Badge.swift */; };
 		C990C3411D03E6A0000547AF /* BadgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3401D03E6A0000547AF /* BadgeCollectionViewCell.swift */; };
+		C9A7D8861D041CBE00D7B2A4 /* BadgePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8851D041CBE00D7B2A4 /* BadgePopoverViewController.swift */; };
+		C9A7D8881D0422DB00D7B2A4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8871D0422DB00D7B2A4 /* PlayerViewController.swift */; };
+		C9A7D88A1D042E4900D7B2A4 /* BadgeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8891D042E4900D7B2A4 /* BadgeCollectionViewController.swift */; };
 		CE99EB19B1BDE2E4DF8D1680 /* Pods_HvZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,12 +122,15 @@
 		C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "Core Data/Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3131D037A87000547AF /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conversation.swift; path = "Core Data/Conversation.swift"; sourceTree = "<group>"; };
 		C990C3281D037DCB000547AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
-		C990C32C1D03810A000547AF /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		C990C32C1D03810A000547AF /* PlayersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersTableViewCell.swift; sourceTree = "<group>"; };
 		C990C32E1D0396CF000547AF /* DummyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DummyStore.swift; path = "Core Data/DummyStore.swift"; sourceTree = "<group>"; };
 		C990C3381D03C09C000547AF /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3391D03C09C000547AF /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C990C33C1D03D999000547AF /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		C990C3401D03E6A0000547AF /* BadgeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C9A7D8851D041CBE00D7B2A4 /* BadgePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgePopoverViewController.swift; sourceTree = "<group>"; };
+		C9A7D8871D0422DB00D7B2A4 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		C9A7D8891D042E4900D7B2A4 /* BadgeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeCollectionViewController.swift; sourceTree = "<group>"; };
 		D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.debug.xcconfig"; sourceTree = "<group>"; };
 		DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0B2C875B0FD3D89177B6B9 /* Pods-HvZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,8 +203,11 @@
 				C990C2FC1D035666000547AF /* Offline Demo Data */,
 				C956B3791D029B5B007D76CD /* Supporting Files */,
 				C956B35A1D0117C2007D76CD /* Main.storyboard */,
+				C9A7D8891D042E4900D7B2A4 /* BadgeCollectionViewController.swift */,
+				C9A7D8851D041CBE00D7B2A4 /* BadgePopoverViewController.swift */,
 				C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */,
-				C990C32C1D03810A000547AF /* PlayerTableViewCell.swift */,
+				C9A7D8871D0422DB00D7B2A4 /* PlayerViewController.swift */,
+				C990C32C1D03810A000547AF /* PlayersTableViewCell.swift */,
 				C990C33C1D03D999000547AF /* Badge.swift */,
 				C990C3401D03E6A0000547AF /* BadgeCollectionViewCell.swift */,
 				C956B38A1D02CF39007D76CD /* StatusViewController.swift */,
@@ -485,7 +494,7 @@
 				C990C3151D037A87000547AF /* Mission.swift in Sources */,
 				C956B37F1D02C85A007D76CD /* LoginViewController.swift in Sources */,
 				C956B3831D02CAFE007D76CD /* SignupPasswordViewController.swift in Sources */,
-				C990C32D1D03810A000547AF /* PlayerTableViewCell.swift in Sources */,
+				C990C32D1D03810A000547AF /* PlayersTableViewCell.swift in Sources */,
 				C990C31B1D037A87000547AF /* Clan.swift in Sources */,
 				C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */,
 				C990C3271D037A87000547AF /* Conversation.swift in Sources */,
@@ -495,6 +504,8 @@
 				C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */,
 				C956B38E1D02D2BE007D76CD /* PlayersTableViewController.swift in Sources */,
 				C956B3981D02D744007D76CD /* ConversationsTableViewController.swift in Sources */,
+				C9A7D88A1D042E4900D7B2A4 /* BadgeCollectionViewController.swift in Sources */,
+				C9A7D8881D0422DB00D7B2A4 /* PlayerViewController.swift in Sources */,
 				C956B38B1D02CF39007D76CD /* StatusViewController.swift in Sources */,
 				C990C32F1D0396CF000547AF /* DummyStore.swift in Sources */,
 				C990C3291D037DCB000547AF /* CoreDataTableViewController.swift in Sources */,
@@ -513,6 +524,7 @@
 				C990C3181D037A87000547AF /* Tag+CoreDataProperties.swift in Sources */,
 				C990C3221D037A87000547AF /* Team+CoreDataProperties.swift in Sources */,
 				C956B3851D02CD3A007D76CD /* SignupNumberViewController.swift in Sources */,
+				C9A7D8861D041CBE00D7B2A4 /* BadgePopoverViewController.swift in Sources */,
 				C956B3811D02CAB2007D76CD /* SignupNameViewController.swift in Sources */,
 				C956B39C1D02DBEC007D76CD /* InfectionsViewController.swift in Sources */,
 				C990C31A1D037A87000547AF /* Clan+CoreDataProperties.swift in Sources */,

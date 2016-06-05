@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelegate {
+class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
     var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     
@@ -25,6 +25,8 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
     
     private struct Storyboard {
         static let PlayerCellIdentifier = "Player"
+        static let BadgePopoverSegueIdentifier = "Badge Popover"
+        static let PlayerSegueIdentifier = "Player Segue"
     }
     
     private func updatePlayerSearch() {
@@ -89,69 +91,10 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
     // Precondition: all players have a first name
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.PlayerCellIdentifier, forIndexPath: indexPath)
-        
-        if let player = fetchedResultsController?.objectAtIndexPath(indexPath) as? Player {
-            var teamName: String?
-            var firstName: String?
-            var lastName: String?
-            var clan: Clan?
-            var tagCount: NSNumber?
-            var image: NSData?
-            var badgeTitles: NSArray?
-            
-            player.managedObjectContext?.performBlockAndWait {
-                teamName = player.teamName
-                firstName = player.firstName
-                lastName = player.lastName
-                clan = player.clan
-                tagCount = player.tagCount
-                image = player.image
-                badgeTitles = player.badges as? NSArray
-            }
-            
-            if let playerCell = cell as? PlayerTableViewCell {
-                
-                if let imageData = image {
-                    playerCell.imageView?.image = UIImage(data: imageData)
-                }
-                
-                if lastName == nil {
-                    playerCell.nameLabel?.text = firstName!
-                } else {
-                    playerCell.nameLabel?.text = firstName! + " " + lastName!
-                }
-                
-                if clan != nil {
-                    playerCell.clanLabel?.text = "Clan: \(clan!.name!)"
-                } else {
-                    playerCell.clanLabel?.text = "Of No Clan"
-                }
-                playerCell.tagLabel?.text = "Tags: \(tagCount!)"
-                
-                if teamName! == Team.HumanTeamName {
-                    playerCell.clanLabel?.hidden = false
-                } else {
-                    playerCell.clanLabel?.hidden = true
-                }
-                
-                if teamName! == Team.ZombieTeamName {
-                    playerCell.tagLabel?.hidden = false
-                } else {
-                    playerCell.tagLabel?.hidden = true
-                }
-                
-                // Filling Badge[] from the Core Data NSArray
-                if badgeTitles != nil {
-                    var badgesArray = [Badge]()
-                    for item in badgeTitles! {
-                        if let title = item as? String {
-                            if let badge = Badge.badges[title] {
-                                badgesArray.append(badge)
-                            }
-                        }
-                    }
-                    playerCell.badges = badgesArray
-                }
+        if let playerCell = cell as? PlayersTableViewCell {
+            if let player = fetchedResultsController?.objectAtIndexPath(indexPath) as? Player {
+                playerCell.player = player
+                return playerCell
             }
         }
         return cell
@@ -180,14 +123,42 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
     }
     
     
-    /*
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        if let identifier = segue.identifier {
+            switch identifier {
+            case Storyboard.PlayerSegueIdentifier:
+                if let vc = segue.destinationViewController.contentViewController as? PlayerViewController {
+                    if let playerCell = sender as? PlayersTableViewCell {
+                        if let player = playerCell.player {
+                            vc.player = player
+                        }
+                    }
+                }
+//            case Storyboard.BadgePopoverSegueIdentifier:
+//                if let vc = segue.destinationViewController.contentViewController as? BadgePopoverViewController {
+//                    
+//                    // Populate popover
+//                    if let badgeCell = sender as? BadgeCollectionViewCell {
+//                        if let badge = badgeCell.badge {
+//                            vc.titleLabel.text = badge.title
+//                            vc.descriptionLabel.text = badge.description
+//                        }
+//                    }
+//                    
+//                    if let ppc = vc.popoverPresentationController {
+//                        
+//                        // Only upward popovers
+//                        ppc.permittedArrowDirections = UIPopoverArrowDirection.Down
+//                        
+//                        // Want to be able to control the popover
+//                        ppc.delegate = self
+//                    }
+//                }
+            default: break
+            }
+        }
      }
-     */
     
 }
