@@ -13,7 +13,7 @@ class Team: NSManagedObject {
     
     // Insert code here to add functionality to your managed object subclass
     
-    class func teamWithName(name: String, inManagedObjectContext context: NSManagedObjectContext) -> Team?
+    class func teamNamed(name: String, inManagedObjectContext context: NSManagedObjectContext) -> Team?
     {
         let request = NSFetchRequest(entityName: "Team")
         request.predicate = NSPredicate(format: "name = %@", name)
@@ -28,7 +28,7 @@ class Team: NSManagedObject {
         return nil
     }
     
-    static let ZombieTeamName = "zombie"
-    static let HumanTeamName = "human"
+    static let ZombieTeamName = "Zombies"
+    static let HumanTeamName = "Humans"
     
 }

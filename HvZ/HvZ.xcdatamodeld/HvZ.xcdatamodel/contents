@@ -5,13 +5,6 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Badge" representedClassName=".Badge" syncable="YES">
-        <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="requirements" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="badges" inverseEntity="Player" syncable="YES"/>
-    </entity>
     <entity name="Clan" representedClassName=".Clan" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -51,18 +44,20 @@
         <relationship name="mission" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mission" inverseName="waypoints" inverseEntity="Mission" syncable="YES"/>
     </entity>
     <entity name="Player" representedClassName=".Player" syncable="YES">
+        <attribute name="badges" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="cellNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isModerator" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isOZ" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tagCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="taggedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="badges" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Badge" inverseName="players" inverseEntity="Badge" syncable="YES"/>
         <relationship name="clan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Clan" inverseName="players" inverseEntity="Clan" syncable="YES"/>
         <relationship name="conversations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="players" inverseEntity="Conversation" syncable="YES"/>
         <relationship name="messagesSent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="sender" inverseEntity="Message" syncable="YES"/>
@@ -85,13 +80,12 @@
     </entity>
     <elements>
         <element name="Announcement" positionX="-387" positionY="-198" width="128" height="88"/>
-        <element name="Badge" positionX="-416" positionY="549" width="128" height="118"/>
         <element name="Clan" positionX="-675" positionY="56" width="128" height="103"/>
         <element name="Conversation" positionX="-1062" positionY="56" width="128" height="118"/>
         <element name="Message" positionX="-837" positionY="248" width="128" height="103"/>
         <element name="Mission" positionX="-236" positionY="-54" width="128" height="208"/>
         <element name="MissionWaypoint" positionX="-47" positionY="72" width="128" height="103"/>
-        <element name="Player" positionX="-432" positionY="153" width="128" height="328"/>
+        <element name="Player" positionX="-432" positionY="153" width="128" height="358"/>
         <element name="Tag" positionX="-146" positionY="297" width="128" height="118"/>
         <element name="Team" positionX="-605" positionY="-171" width="128" height="88"/>
     </elements>

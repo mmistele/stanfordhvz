@@ -25,13 +25,15 @@ extension Player {
     @NSManaged var tagCount: NSNumber?
     @NSManaged var taggedAt: NSDate?
     @NSManaged var unique: String?
-    @NSManaged var badges: NSSet?
-    @NSManaged var clan: NSManagedObject?
-    @NSManaged var conversations: NSManagedObject?
+    @NSManaged var teamName: String?
+    @NSManaged var badges: NSObject?
+    @NSManaged var isOZ: NSNumber?
+    @NSManaged var clan: Clan?
+    @NSManaged var conversations: Conversation?
     @NSManaged var messagesSent: NSSet?
-    @NSManaged var originalTag: NSManagedObject?
-    @NSManaged var tags: NSManagedObject?
-    @NSManaged var team: NSManagedObject?
+    @NSManaged var originalTag: Tag?
+    @NSManaged var tags: Tag?
+    @NSManaged var team: Team?
     @NSManaged var missionsAttempted: NSSet?
 
 }

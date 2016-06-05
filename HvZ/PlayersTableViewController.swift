@@ -38,7 +38,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                     // Handles multi-word last names, but only single-word first names
                     let firstNameSearch = nameArray.first!
                     let lastNameSearch = nameArray.suffix(nameArray.count-1).joinWithSeparator(" ")
-                    request.predicate = NSPredicate(format: "firstName contains[c] %@ AND lastname contains[c] %@", firstNameSearch, lastNameSearch)
+                    request.predicate = NSPredicate(format: "(firstName contains[c] %@ OR lastName contains[c] %@) OR lastName contains[c] %@", firstNameSearch, lastNameSearch, firstNameSearch)
                 }
             } else {
                 // Fetch all players
@@ -46,7 +46,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
             }
             request.sortDescriptors = [
                 NSSortDescriptor(
-                    key: "team",
+                    key: "teamName",
                     ascending: true,
                     selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
                 ),
@@ -64,7 +64,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
             fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
-                sectionNameKeyPath: "team",
+                sectionNameKeyPath: "teamName",
                 cacheName: nil)
         }
     }
@@ -72,8 +72,10 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
     // Revisit this for heights
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+        DummyStore.preloadData(inManagedObjectContext: managedObjectContext!)
+        updatePlayerSearch()
+        tableView.estimatedRowHeight = 100 // tableView.rowHeight
+        tableView.rowHeight = 100 // UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,7 +91,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.PlayerCellIdentifier, forIndexPath: indexPath)
         
         if let player = fetchedResultsController?.objectAtIndexPath(indexPath) as? Player {
-            var team: Team?
+            var teamName: String?
             var firstName: String?
             var lastName: String?
             var clan: Clan?
@@ -97,15 +99,19 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
             var image: NSData?
             
             player.managedObjectContext?.performBlockAndWait {
-                team = player.team as? Team
+                teamName = player.teamName
                 firstName = player.firstName
                 lastName = player.lastName
-                clan = player.clan as? Clan
+                clan = player.clan
                 tagCount = player.tagCount
                 image = player.image
             }
             
             if let playerCell = cell as? PlayerTableViewCell {
+                
+                if let imageData = image {
+                    playerCell.imageView?.image = UIImage(data: imageData)
+                }
                 
                 if lastName == nil {
                     playerCell.nameLabel?.text = firstName!
@@ -113,19 +119,15 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                     playerCell.nameLabel?.text = firstName! + " " + lastName!
                 }
                 
-                if clan != nil {
-                    playerCell.clanLabel?.text = "Clan: \(clan!.name)"
+                if teamName! == "Humans" {
+                    playerCell.tagLabel.removeFromSuperview()
+                    if clan != nil {
+                        playerCell.clanLabel?.text = "Clan: \(clan!.name!)"
+                    } else {
+                        playerCell.clanLabel?.text = "Of No Clan"
+                    }
                 } else {
-                    playerCell.clanLabel?.text = "Of No Clan"
-                }
-                
-                if let imageData = image {
-                    playerCell.imageView?.image = UIImage(data: imageData)
-                }
-                
-                if team?.name == "Human" {
-                    playerCell.tagLabel = nil
-                } else {
+                    playerCell.clanLabel.removeFromSuperview()
                     playerCell.tagLabel?.text = "Tags: \(tagCount!)"
                 }
             }
