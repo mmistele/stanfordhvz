@@ -322,6 +322,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="fieldStackView" destination="76S-RP-nv3" id="Iwn-m0-qSS"/>
+                        <outlet property="passwordField" destination="jdH-oa-EnW" id="3dm-Cc-SZG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0U-If-4QN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1326,6 +1330,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="fieldStackView" destination="0Up-G8-ehH" id="WPQ-Hx-N4i"/>
+                        <outlet property="numberField" destination="EMU-eU-jMd" id="bWT-vu-Kyg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZO-wC-Fbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1349,10 +1357,10 @@
             </objects>
             <point key="canvasLocation" x="3618" y="-128"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Signup Navigation Controller-->
         <scene sceneID="CAI-xm-4xW">
             <objects>
-                <navigationController id="nxS-bG-5rf" sceneMemberID="viewController">
+                <navigationController id="nxS-bG-5rf" customClass="SignupNavigationController" customModule="HvZ" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W63-MH-TSE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1378,7 +1386,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o0f-aE-g2q">
-                                <rect key="frame" x="200" y="200" width="200" height="190"/>
+                                <rect key="frame" x="200" y="169" width="200" height="221"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-gI-oNJ">
                                         <rect key="frame" x="62" y="0.0" width="76" height="34"/>
@@ -1425,8 +1433,15 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Incorrect login, try again" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iu8-Fa-bhk">
+                                        <rect key="frame" x="20" y="205" width="160" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="iu8-Fa-bhk" firstAttribute="leading" secondItem="o0f-aE-g2q" secondAttribute="leading" constant="20" symbolic="YES" id="59b-Di-6ek"/>
                                     <constraint firstItem="dNp-iB-bNb" firstAttribute="width" secondItem="wOf-zz-HCn" secondAttribute="width" id="Y3S-wK-BUZ"/>
                                 </constraints>
                             </stackView>
@@ -1451,6 +1466,10 @@
                                         <include reference="M9T-aP-Nuk"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="logInPressed:" destination="rae-VH-xiF" eventType="touchUpInside" id="PPn-cx-IdM"/>
+                                    <segue destination="hSf-e9-FV6" kind="show" identifier="Log In" id="lxP-9O-rvq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1474,6 +1493,7 @@
                     </view>
                     <connections>
                         <outlet property="fieldsStackView" destination="o0f-aE-g2q" id="7iD-yn-6I0"/>
+                        <outlet property="incorrectLoginLabel" destination="iu8-Fa-bhk" id="Hmr-mL-7CW"/>
                         <outlet property="passwordField" destination="dNp-iB-bNb" id="65e-xl-g8c"/>
                         <outlet property="phoneNumberField" destination="wOf-zz-HCn" id="5sT-ED-nXF"/>
                     </connections>

@@ -12,9 +12,14 @@ import AVFoundation
 /*
  * Takes care of the audio and player data between screens of login/signup.
  */
-class SignupNavigationViewController: UINavigationController {
+class SignupNavigationController: UINavigationController {
 
     var audioPlayer: AVAudioPlayer?
+    
+    var firstName: String?
+    var lastName: String?
+    var newUserPassword: String?
+    var newUserCellNumber: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -27,6 +27,7 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         static let PlayerCellIdentifier = "Player"
         static let BadgePopoverSegueIdentifier = "Badge Popover"
         static let PlayerSegueIdentifier = "Player Segue"
+        static let RowHeight = CGFloat(80)
     }
     
     private func updatePlayerSearch() {
@@ -71,13 +72,11 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         }
     }
     
-    // Revisit this for heights
     override func viewDidLoad() {
         super.viewDidLoad()
-        DummyStore.preloadData(inManagedObjectContext: managedObjectContext!)
         updatePlayerSearch()
-        tableView.estimatedRowHeight = 80 //tableView.rowHeight
-        tableView.rowHeight = 80 // UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = Storyboard.RowHeight //tableView.rowHeight
+        tableView.rowHeight = Storyboard.RowHeight // UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
@@ -136,26 +135,30 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                         }
                     }
                 }
-//            case Storyboard.BadgePopoverSegueIdentifier:
-//                if let vc = segue.destinationViewController.contentViewController as? BadgePopoverViewController {
-//                    
-//                    // Populate popover
-//                    if let badgeCell = sender as? BadgeCollectionViewCell {
-//                        if let badge = badgeCell.badge {
-//                            vc.titleLabel.text = badge.title
-//                            vc.descriptionLabel.text = badge.description
-//                        }
-//                    }
-//                    
-//                    if let ppc = vc.popoverPresentationController {
-//                        
-//                        // Only upward popovers
-//                        ppc.permittedArrowDirections = UIPopoverArrowDirection.Down
-//                        
-//                        // Want to be able to control the popover
-//                        ppc.delegate = self
-//                    }
-//                }
+
+            /*
+            // For future use
+            case Storyboard.BadgePopoverSegueIdentifier:
+                if let vc = segue.destinationViewController.contentViewController as? BadgePopoverViewController {
+                    
+                    // Populate popover
+                    if let badgeCell = sender as? BadgeCollectionViewCell {
+                        if let badge = badgeCell.badge {
+                            vc.titleLabel.text = badge.title
+                            vc.descriptionLabel.text = badge.description
+                        }
+                    }
+                    
+                    if let ppc = vc.popoverPresentationController {
+                        
+                        // Only upward popovers
+                        ppc.permittedArrowDirections = UIPopoverArrowDirection.Down
+                        
+                        // Want to be able to control the popover
+                        ppc.delegate = self
+                    }
+                }
+            */
             default: break
             }
         }

@@ -15,6 +15,7 @@ class TitleScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DummyStore.preloadData(inManagedObjectContext: ((UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext)!)
     }
     
     override func didReceiveMemoryWarning() {

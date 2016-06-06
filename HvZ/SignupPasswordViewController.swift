@@ -8,19 +8,25 @@
 
 import UIKit
 
-class SignupPasswordViewController: UIViewController {
+class SignupPasswordViewController: KeyboardAdaptiveViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var passwordField: UITextField! {
+        didSet {
+            passwordField.delegate = self
+        }
+    }
+    @IBOutlet weak var fieldStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setUpAdaptation(forView: fieldStackView)
+        subscribeToKeyboardAnimations()
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     /*
     // MARK: - Navigation

@@ -62,7 +62,7 @@
 		C9A7D88C1D04B87F00D7B2A4 /* Growl.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A7D88B1D04B87F00D7B2A4 /* Growl.wav */; };
 		C9A7D88E1D04B88D00D7B2A4 /* HorrorAmbiance.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A7D88D1D04B88D00D7B2A4 /* HorrorAmbiance.wav */; };
 		C9A7D8901D04C4CA00D7B2A4 /* Thriller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9A7D88F1D04C4CA00D7B2A4 /* Thriller.mp3 */; };
-		C9A7D8921D04C78E00D7B2A4 /* SignupNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8911D04C78E00D7B2A4 /* SignupNavigationViewController.swift */; };
+		C9A7D8921D04C78E00D7B2A4 /* SignupNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8911D04C78E00D7B2A4 /* SignupNavigationController.swift */; };
 		C9A7D8941D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */; };
 		CE99EB19B1BDE2E4DF8D1680 /* Pods_HvZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */; };
 /* End PBXBuildFile section */
@@ -139,7 +139,7 @@
 		C9A7D88B1D04B87F00D7B2A4 /* Growl.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Growl.wav; sourceTree = "<group>"; };
 		C9A7D88D1D04B88D00D7B2A4 /* HorrorAmbiance.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HorrorAmbiance.wav; sourceTree = "<group>"; };
 		C9A7D88F1D04C4CA00D7B2A4 /* Thriller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Thriller.mp3; sourceTree = "<group>"; };
-		C9A7D8911D04C78E00D7B2A4 /* SignupNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupNavigationViewController.swift; sourceTree = "<group>"; };
+		C9A7D8911D04C78E00D7B2A4 /* SignupNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupNavigationController.swift; sourceTree = "<group>"; };
 		C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptiveViewController.swift; sourceTree = "<group>"; };
 		D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.debug.xcconfig"; sourceTree = "<group>"; };
 		DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +213,7 @@
 				C990C2FC1D035666000547AF /* Offline Demo Data */,
 				C956B3791D029B5B007D76CD /* Supporting Files */,
 				C956B35A1D0117C2007D76CD /* Main.storyboard */,
+				C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */,
 				C9A7D8891D042E4900D7B2A4 /* BadgeCollectionViewController.swift */,
 				C9A7D8851D041CBE00D7B2A4 /* BadgePopoverViewController.swift */,
 				C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */,
@@ -260,15 +261,14 @@
 			isa = PBXGroup;
 			children = (
 				C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */,
+				C9A7D8911D04C78E00D7B2A4 /* SignupNavigationController.swift */,
 				C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */,
-				C9A7D8911D04C78E00D7B2A4 /* SignupNavigationViewController.swift */,
-				C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */,
-				C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */,
-				C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */,
 				C956B37E1D02C85A007D76CD /* LoginViewController.swift */,
 				C956B3841D02CD3A007D76CD /* SignupNumberViewController.swift */,
 				C956B3821D02CAFE007D76CD /* SignupPasswordViewController.swift */,
 				C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */,
+				C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */,
+				C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */,
 			);
 			name = Login/Signup;
 			sourceTree = "<group>";
@@ -512,7 +512,7 @@
 				C990C3151D037A87000547AF /* Mission.swift in Sources */,
 				C956B37F1D02C85A007D76CD /* LoginViewController.swift in Sources */,
 				C956B3831D02CAFE007D76CD /* SignupPasswordViewController.swift in Sources */,
-				C9A7D8921D04C78E00D7B2A4 /* SignupNavigationViewController.swift in Sources */,
+				C9A7D8921D04C78E00D7B2A4 /* SignupNavigationController.swift in Sources */,
 				C990C32D1D03810A000547AF /* PlayersTableViewCell.swift in Sources */,
 				C990C31B1D037A87000547AF /* Clan.swift in Sources */,
 				C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */,

@@ -8,21 +8,26 @@
 
 import UIKit
 
-class SignupNumberViewController: UIViewController {
+class SignupNumberViewController: KeyboardAdaptiveViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var numberField: UITextField! {
+        didSet {
+            numberField.delegate = self
+        }
+    }
+    @IBOutlet weak var fieldStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setUpAdaptation(forView: fieldStackView)
+        subscribeToKeyboardAnimations()
     }
     
-    // Don't forget to resign control! That's the big one.
-
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 
