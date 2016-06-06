@@ -21,6 +21,7 @@ class SignupNumberViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Don't forget to resign control! That's the big one.
 
     /*
     // MARK: - Navigation
