@@ -1,40 +1,36 @@
 //
-//  SignupNameViewController.swift
+//  KeyboardAdaptiveViewController.swift
 //  HvZ
 //
-//  Created by Matthew Mistele on 6/4/16.
+//  Created by Matthew Mistele on 6/5/16.
 //  Copyright © 2016 Matthew Mistele. All rights reserved.
 //
 
 import UIKit
-import Foundation
 
-class SignupNameViewController: UIViewController, UITextFieldDelegate {
+class KeyboardAdaptiveViewController: UIViewController {
+
+    /// Can be set by subclasses - see setUpAdaptation() for default
+    internal var centerYConstraint: NSLayoutConstraint?
     
-    private var centerYConstraint: NSLayoutConstraint?
-    private var keyboardConstraint: NSLayoutConstraint?
+    /// Private variables for adapting to the keyboard
+    private var bottomConstraint: NSLayoutConstraint?
     private var keyboardShowObserver: NSObjectProtocol?
     private var keyboardHideObserver: NSObjectProtocol?
-    private var bottomConstraint: NSLayoutConstraint?
-    private let keyboardSeparation = CGFloat(10) // how many pixels to separate the stack view from the keyboard
     
-    @IBOutlet weak var textFieldsStackView: UIStackView!
+    // How many pixels to separate the stack view from the keyboard
+    internal var keyboardSeparation = CGFloat(10)
     
-    @IBOutlet weak var firstNameField: UITextField! {
-        didSet {
-            firstNameField.delegate = self
-        }
-    }
-    @IBOutlet weak var lastNameField: UITextField! {
-        didSet {
-            lastNameField.delegate = self
-        }
-    }
+    /// The view that changes its constraints to not be covered by the keyboard
+    internal var adaptingView: UIView?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    /*
+     * Called by subclasses once their view is loaded.
+     */
+    internal func setUpAdaptation(forView adaptView: UIView) {
+        adaptingView = adaptView
         centerYConstraint = NSLayoutConstraint(
-            item: textFieldsStackView,
+            item: adaptingView!,
             attribute: .CenterY,
             relatedBy: .Equal,
             toItem: view,
@@ -44,31 +40,49 @@ class SignupNameViewController: UIViewController, UITextFieldDelegate {
         view.addConstraint(centerYConstraint!)
     }
     
+    /*
+     * Subscribes each time view will appear, except it won't work the first time -
+     * need to also have subclass call subscribeToKeyboardAnimations() once it's loaded,
+     */
     override func viewWillAppear(animated: Bool) {
-        subscribeToKeyboardShowAnimation()
-        subscribeToKeyboardHideAnimation()
+        super.viewWillAppear(animated)
+        subscribeToKeyboardAnimations()
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardAnimations()
+    }
+    
+    /*
+     * The following functions are called on view appear and disappear, and can be called
+     * at other times by subclasses if needed (or by other classes if REALLY needed)
+     */
+    internal func subscribeToKeyboardAnimations() {
+        subscribeToKeyboardShowAnimation()
+        subscribeToKeyboardHideAnimation()
+    }
+    internal func unsubscribeFromKeyboardAnimations() {
         NSNotificationCenter.defaultCenter().removeObserver(keyboardShowObserver!)
         NSNotificationCenter.defaultCenter().removeObserver(keyboardHideObserver!)
     }
     
+    
     /*
-     * Handle keyboard coming in and obscuring the view
+     * Handle keyboard coming in and obscuring adaptingView
      */
     private func subscribeToKeyboardShowAnimation() {
         let center = NSNotificationCenter.defaultCenter()
         keyboardShowObserver = center.addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
             [weak self] (notification) in
-            if self != nil {
+            if self != nil && self!.adaptingView != nil {
                 
                 // Get end location of the keyboard
                 // Following two lines adapted from http://stackoverflow.com/questions/25091765/how-to-get-a-value-from-nsvalue-in-swift
                 if let endFrameOptional = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]! as? NSValue {
                     let endFrame = endFrameOptional.CGRectValue()
                     
-                    let spaceForKeyboard = self!.view.bounds.maxY - self!.textFieldsStackView.frame.maxY
+                    let spaceForKeyboard = self!.view.bounds.maxY - self!.adaptingView!.frame.maxY
                     if endFrame.height < spaceForKeyboard {
                         // Do nothing, we're ok
                         return
@@ -83,7 +97,7 @@ class SignupNameViewController: UIViewController, UITextFieldDelegate {
                     
                     // Set end keyframe to being 10 pixels away from
                     self!.bottomConstraint = NSLayoutConstraint(
-                        item: self!.textFieldsStackView,
+                        item: self!.adaptingView!,
                         attribute: .Bottom,
                         relatedBy: .Equal,
                         toItem: self!.view,
@@ -129,37 +143,13 @@ class SignupNameViewController: UIViewController, UITextFieldDelegate {
                 if let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double {
                     animationDuration = duration
                 }
-                // Adapted from http://stackoverflow.com/questions/12622424/how-do-i-animate-constraint-changes
                 UIView.animateWithDuration(animationDuration) {
                     self!.view.layoutIfNeeded()
                 }
             }
             
-            })
+        })
         
     }
-    
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        // Get the info from it
-        return true
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }

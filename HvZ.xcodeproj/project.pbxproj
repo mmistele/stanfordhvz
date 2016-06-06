@@ -63,6 +63,7 @@
 		C9A7D88E1D04B88D00D7B2A4 /* HorrorAmbiance.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A7D88D1D04B88D00D7B2A4 /* HorrorAmbiance.wav */; };
 		C9A7D8901D04C4CA00D7B2A4 /* Thriller.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9A7D88F1D04C4CA00D7B2A4 /* Thriller.mp3 */; };
 		C9A7D8921D04C78E00D7B2A4 /* SignupNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8911D04C78E00D7B2A4 /* SignupNavigationViewController.swift */; };
+		C9A7D8941D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */; };
 		CE99EB19B1BDE2E4DF8D1680 /* Pods_HvZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,7 @@
 		C9A7D88D1D04B88D00D7B2A4 /* HorrorAmbiance.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HorrorAmbiance.wav; sourceTree = "<group>"; };
 		C9A7D88F1D04C4CA00D7B2A4 /* Thriller.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Thriller.mp3; sourceTree = "<group>"; };
 		C9A7D8911D04C78E00D7B2A4 /* SignupNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupNavigationViewController.swift; sourceTree = "<group>"; };
+		C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptiveViewController.swift; sourceTree = "<group>"; };
 		D923DC8CDB039B2891C3B620 /* Pods-HvZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.debug.xcconfig"; sourceTree = "<group>"; };
 		DCCCE8DB38ADE0D680159394 /* Pods-HvZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED0B2C875B0FD3D89177B6B9 /* Pods-HvZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-HvZ/Pods-HvZ.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +259,8 @@
 		C956B38C1D02CF42007D76CD /* Login/Signup */ = {
 			isa = PBXGroup;
 			children = (
+				C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */,
+				C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */,
 				C9A7D8911D04C78E00D7B2A4 /* SignupNavigationViewController.swift */,
 				C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */,
 				C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */,
@@ -264,7 +268,6 @@
 				C956B37E1D02C85A007D76CD /* LoginViewController.swift */,
 				C956B3841D02CD3A007D76CD /* SignupNumberViewController.swift */,
 				C956B3821D02CAFE007D76CD /* SignupPasswordViewController.swift */,
-				C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */,
 				C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */,
 			);
 			name = Login/Signup;
@@ -518,6 +521,7 @@
 				C990C33D1D03D999000547AF /* Badge.swift in Sources */,
 				C956B37B1D02AA54007D76CD /* TitleScreenViewController.swift in Sources */,
 				C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */,
+				C9A7D8941D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift in Sources */,
 				C956B38E1D02D2BE007D76CD /* PlayersTableViewController.swift in Sources */,
 				C956B3981D02D744007D76CD /* ConversationsTableViewController.swift in Sources */,
 				C9A7D88A1D042E4900D7B2A4 /* BadgeCollectionViewController.swift in Sources */,
