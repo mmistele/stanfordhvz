@@ -74,15 +74,16 @@ class LoginViewController: KeyboardAdaptiveViewController, UITextFieldDelegate {
             let request = NSFetchRequest(entityName: "Player")
             request.predicate = NSPredicate(format: "cellNumber = %@ AND password = %@", phoneNumber, password)
             if let user = try? context.executeFetchRequest(request).first {
-                player = user! as? Player
-                if player != nil {
-                    (UIApplication.sharedApplication().delegate as? AppDelegate)?.currentUser = player
-                    performSegueWithIdentifier(Storyboard.LogInSegueIdentifier, sender: self)
-                } else {
-                    incorrectLoginLabel.text = "Incorrect login, try again."
-                    incorrectLoginLabel.hidden = false
+                if let userObject = user {
+                    if let player = userObject as? Player {
+                        (UIApplication.sharedApplication().delegate as? AppDelegate)?.currentUser = player
+                        performSegueWithIdentifier(Storyboard.LogInSegueIdentifier, sender: self)
+                        return
+                    }
                 }
             }
+            incorrectLoginLabel.text = "Incorrect login, try again."
+            incorrectLoginLabel.hidden = false
         }
     }
     

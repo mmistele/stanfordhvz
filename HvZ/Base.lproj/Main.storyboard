@@ -342,7 +342,21 @@
                     <view key="view" contentMode="scaleToFill" id="v2I-Y2-a04">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to HvZ! This app is still in progress, but you can check out who's playing with the &quot;Players&quot; tab below." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="35g-bP-10L">
+                                <rect key="frame" x="59" y="72" width="483" height="456"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="35g-bP-10L" firstAttribute="centerY" secondItem="v2I-Y2-a04" secondAttribute="centerY" id="K5z-D1-om6"/>
+                            <constraint firstItem="35g-bP-10L" firstAttribute="centerX" secondItem="v2I-Y2-a04" secondAttribute="centerX" id="nZ5-mi-DhX"/>
+                            <constraint firstItem="35g-bP-10L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v2I-Y2-a04" secondAttribute="leadingMargin" constant="20" id="ouL-HN-MIF"/>
+                            <constraint firstItem="35g-bP-10L" firstAttribute="top" secondItem="bvu-xg-V0E" secondAttribute="bottom" constant="8" symbolic="YES" id="yeD-1h-vQZ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Status" id="pVA-mQ-oNE"/>
                 </viewController>
@@ -1280,7 +1294,7 @@
                                             <constraint firstAttribute="width" constant="185" id="WKb-vF-kGq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -1306,7 +1320,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="Jhy-d8-oaw" kind="show" id="uAf-d4-Sct"/>
+                                    <segue destination="hSf-e9-FV6" kind="show" id="Nh9-OM-A5D"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1337,7 +1351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZO-wC-Fbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761" y="-128"/>
+            <point key="canvasLocation" x="1507" y="590"/>
         </scene>
         <!--Choose Profile Pic View Controller-->
         <scene sceneID="6I0-5U-j51">
@@ -1507,4 +1521,7 @@
         <image name="HvZTextFieldBackground" width="21" height="20"/>
         <image name="TitleScreenImage" width="477" height="199"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nh9-OM-A5D"/>
+    </inferredMetricsTieBreakers>
 </document>

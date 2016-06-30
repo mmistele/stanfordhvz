@@ -11,7 +11,7 @@ import CoreData
 
 class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
-    var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    private var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     
     // Can make it an array of arrays to have each be a fetch
     private var players = [Player]() {

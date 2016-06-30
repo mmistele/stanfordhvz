@@ -31,7 +31,6 @@
 		C956B39E1D02DD09007D76CD /* MissionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */; };
 		C956B3A11D02DFF1007D76CD /* ClanCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */; };
 		C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */; };
-		C96ABEAF1D02E3DC003D3D67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C96ABEAE1D02E3DC003D3D67 /* GoogleService-Info.plist */; };
 		C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */; };
 		C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */; };
 		C990C3151D037A87000547AF /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3011D037A87000547AF /* Mission.swift */; };
@@ -108,7 +107,6 @@
 		C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionMapViewController.swift; sourceTree = "<group>"; };
 		C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClanCollectionViewController.swift; path = ../ClanCollectionViewController.swift; sourceTree = "<group>"; };
 		C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanDetailTableViewController.swift; sourceTree = "<group>"; };
-		C96ABEAE1D02E3DC003D3D67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseProfilePicViewController.swift; sourceTree = "<group>"; };
 		C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Mission+CoreDataProperties.swift"; path = "Core Data/Mission+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3011D037A87000547AF /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mission.swift; path = "Core Data/Mission.swift"; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 				C990C2FC1D035666000547AF /* Offline Demo Data */,
 				C956B3791D029B5B007D76CD /* Supporting Files */,
 				C956B35A1D0117C2007D76CD /* Main.storyboard */,
-				C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */,
 				C9A7D8891D042E4900D7B2A4 /* BadgeCollectionViewController.swift */,
 				C9A7D8851D041CBE00D7B2A4 /* BadgePopoverViewController.swift */,
 				C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */,
@@ -252,7 +249,6 @@
 				C956B3601D0117C2007D76CD /* Assets.xcassets */,
 				C956B3621D0117C2007D76CD /* LaunchScreen.storyboard */,
 				C956B3651D0117C2007D76CD /* Info.plist */,
-				C96ABEAE1D02E3DC003D3D67 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -260,6 +256,7 @@
 		C956B38C1D02CF42007D76CD /* Login/Signup */ = {
 			isa = PBXGroup;
 			children = (
+				C956B37A1D02AA54007D76CD /* TitleScreenViewController.swift */,
 				C9A7D8931D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift */,
 				C9A7D8911D04C78E00D7B2A4 /* SignupNavigationController.swift */,
 				C956B3801D02CAB2007D76CD /* SignupNameViewController.swift */,
@@ -408,7 +405,6 @@
 			files = (
 				C956B3641D0117C2007D76CD /* LaunchScreen.storyboard in Resources */,
 				C9A7D8901D04C4CA00D7B2A4 /* Thriller.mp3 in Resources */,
-				C96ABEAF1D02E3DC003D3D67 /* GoogleService-Info.plist in Resources */,
 				C956B3611D0117C2007D76CD /* Assets.xcassets in Resources */,
 				C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */,
 				C9A7D88E1D04B88D00D7B2A4 /* HorrorAmbiance.wav in Resources */,
