@@ -10,72 +10,17 @@ import UIKit
 
 class PlayersTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var player: Player? {
+    // This line kind of breaks MVC, but...
+    var player: Player! {
         didSet {
-            if player != nil {
-                var teamName: String?
-                var firstName: String?
-                var lastName: String?
-                var clan: Clan?
-                var tagCount: NSNumber?
-                var image: NSData?
-                var badgeTitles: NSArray?
-                
-                // Only being called once, not kept as a property, so retain cycle not an issue
-                player!.managedObjectContext?.performBlockAndWait {
-                    teamName = self.player!.teamName
-                    firstName = self.player!.firstName
-                    lastName = self.player!.lastName
-                    clan = self.player!.clan
-                    tagCount = self.player!.tagCount
-                    image = self.player!.image
-                    badgeTitles = self.player!.badges as? NSArray
-                }
-                
-                if let imageData = image {
-                    profileImg?.image = UIImage(data: imageData)
-                }
-                
-                if lastName == nil {
-                    nameLabel?.text = firstName!
-                } else {
-                    nameLabel?.text = firstName! + " " + lastName!
-                }
-                
-                if clan != nil {
-                    clanLabel?.text = "Clan: \(clan!.name!)"
-                } else {
-                    clanLabel?.text = "Of No Clan"
-                }
-                tagLabel?.text = "Tags: \(tagCount!)"
-                
-                if teamName! == Team.HumanTeamName {
-                    clanLabel?.hidden = false
-                } else {
-                    clanLabel?.hidden = true
-                }
-                
-                if teamName! == Team.ZombieTeamName {
-                    tagLabel?.hidden = false
-                } else {
-                    tagLabel?.hidden = true
-                }
-                
-                // Filling Badge[] from the Core Data NSArray
-                if badgeTitles != nil {
-                    var badgesArray = [Badge]()
-                    for item in badgeTitles! {
-                        if let title = item as? String {
-                            if let badge = Badge.badges[title] {
-                                badgesArray.append(badge)
-                            }
-                        }
-                    }
-                    badges = badgesArray
-                }
+            if let firstName = player.firstName, lastName = player.lastName {
+                nameLabel.text = firstName + " " + lastName
+            }
+            tagLabel.text = "Tags: \(player.tagCount)"
+            if let imageData = player.image {
+                profileImg.image = UIImage(data: imageData)
             }
         }
-        
     }
     
     @IBOutlet weak var profileImg: UIImageView!
@@ -91,7 +36,6 @@ class PlayersTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     }
     
     var badges = [Badge]()
-    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return badges.count

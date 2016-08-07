@@ -16,6 +16,5 @@ extension Team {
 
     @NSManaged var name: String?
     @NSManaged var chat: NSManagedObject?
-    @NSManaged var players: Player?
 
 }

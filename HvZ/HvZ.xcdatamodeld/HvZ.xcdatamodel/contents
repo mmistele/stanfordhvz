@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
     <entity name="Announcement" representedClassName=".Announcement" syncable="YES">
         <attribute name="bodyText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
@@ -54,6 +54,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunetId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tagCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="taggedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
@@ -85,7 +86,7 @@
         <element name="Message" positionX="-837" positionY="248" width="128" height="103"/>
         <element name="Mission" positionX="-236" positionY="-54" width="128" height="208"/>
         <element name="MissionWaypoint" positionX="-47" positionY="72" width="128" height="103"/>
-        <element name="Player" positionX="-432" positionY="153" width="128" height="358"/>
+        <element name="Player" positionX="-432" positionY="153" width="128" height="375"/>
         <element name="Tag" positionX="-146" positionY="297" width="128" height="118"/>
         <element name="Team" positionX="-605" positionY="-171" width="128" height="88"/>
     </elements>

@@ -19,7 +19,7 @@ class SignupNavigationController: UINavigationController {
     var firstName: String?
     var lastName: String?
     var newUserPassword: String?
-    var newUserCellNumber: String?
+    var newUserSUNetId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

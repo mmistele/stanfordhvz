@@ -17,7 +17,5 @@ extension Tag {
     @NSManaged var latitude: NSNumber?
     @NSManaged var longitude: NSNumber?
     @NSManaged var timestamp: NSDate?
-    @NSManaged var humanTurned: Player?
-    @NSManaged var tagger: Player?
 
 }

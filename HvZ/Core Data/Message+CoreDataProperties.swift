@@ -17,6 +17,5 @@ extension Message {
     @NSManaged var text: String?
     @NSManaged var timestamp: NSDate?
     @NSManaged var conversation: NSManagedObject?
-    @NSManaged var sender: Player?
 
 }

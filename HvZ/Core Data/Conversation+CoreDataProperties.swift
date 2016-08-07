@@ -17,7 +17,6 @@ extension Conversation {
     @NSManaged var name: String?
     @NSManaged var clan: Clan?
     @NSManaged var messages: NSSet?
-    @NSManaged var players: Player?
     @NSManaged var team: Team?
 
 }

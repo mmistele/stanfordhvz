@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreGraphics
+import Firebase
 
 class PlayerViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -15,9 +16,8 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
         didSet {
             if player != nil {
                 var badgeTitles: NSArray?
-                player!.managedObjectContext?.performBlockAndWait {
-                    badgeTitles = self.player!.badges as? NSArray
-                }
+                // This used to be performBlockAndWait...
+                badgeTitles = self.player!.badges as? NSArray
                 
                 if badgeTitles != nil {
                     var badgesArray = [Badge]()
@@ -33,6 +33,9 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
             }
         }
     }
+    
+    //    lazy var storage = FIRStorage.storage()
+    //    lazy var storageRef = storage.referenceForURL("gs://"
     
     var badges = [Badge]()
     
@@ -154,15 +157,14 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
             var unique: String?
             
             // Only being called once, not kept as a property, so retain cycle not an issue
-            playerObject.managedObjectContext?.performBlockAndWait {
-                teamName = playerObject.teamName
-                firstName = playerObject.firstName
-                lastName = playerObject.lastName
-                clan = playerObject.clan
-                tagCount = playerObject.tagCount
-                image = playerObject.image
-                unique = playerObject.unique
-            }
+            // This used to performBlockAndWait...
+            teamName = playerObject.team
+            firstName = playerObject.firstName
+            lastName = playerObject.lastName
+            clan = playerObject.clan
+            tagCount = playerObject.tagCount
+            image = playerObject.image
+            unique = playerObject.uid
             
             if let imageData = image {
                 profileImageView.image = UIImage(data: imageData)
@@ -187,9 +189,10 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
             
             var currentUserUnique: String?
             if let currentUser = (UIApplication.sharedApplication().delegate as? AppDelegate)?.currentUser {
-                currentUser.managedObjectContext?.performBlockAndWait({
-                    currentUserUnique = currentUser.unique
-                })
+                
+                // This used to performBlockAndWait...
+                currentUserUnique = currentUser.uid
+                
                 if currentUserUnique == unique {
                     editButton.hidden = false
                 }

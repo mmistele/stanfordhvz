@@ -8,10 +8,15 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseDatabaseUI
 
-class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
+class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
     
-    private var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
+    @IBOutlet weak var tableView: UITableView!
+    
+    var dataSource: SearchableFirebaseTableViewDataSource?
+    var ref: FIRDatabaseReference!
     
     // Can make it an array of arrays to have each be a fetch
     private var players = [Player]() {
@@ -30,74 +35,81 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
         static let RowHeight = CGFloat(80)
     }
     
-    private func updatePlayerSearch() {
-        if let context = managedObjectContext {
-            let request = NSFetchRequest(entityName: "Player")
-            
-            if search?.characters.count > 0 {
-                // After some trouble finding it in the documentation, just used http://stackoverflow.com/questions/25678373/swift-split-a-string-into-an-array
-                let splitNames = search?.characters.split{$0 == " "}.map(String.init)
-                if let nameArray = splitNames where nameArray.count > 0 {
-                    // Handles multi-word last names, but only single-word first names
-                    let firstNameSearch = nameArray.first!
-                    let lastNameSearch = nameArray.suffix(nameArray.count-1).joinWithSeparator(" ")
-                    request.predicate = NSPredicate(format: "(firstName contains[c] %@ OR lastName contains[c] %@) OR lastName contains[c] %@", firstNameSearch, lastNameSearch, firstNameSearch)
-                }
-            } else {
-                // Fetch all players
-                request.predicate = nil
-            }
-            request.sortDescriptors = [
-                NSSortDescriptor(
-                    key: "teamName",
-                    ascending: true,
-                    selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-                ),
-                NSSortDescriptor(
-                    key: "firstName",
-                    ascending:  true,
-                    selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-                ),
-                NSSortDescriptor(
-                    key: "lastName",
-                    ascending:  true,
-                    selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-                )
-            ]
-            fetchedResultsController = NSFetchedResultsController(
-                fetchRequest: request,
-                managedObjectContext: context,
-                sectionNameKeyPath: "teamName",
-                cacheName: nil)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updatePlayerSearch()
-        tableView.estimatedRowHeight = Storyboard.RowHeight //tableView.rowHeight
-        tableView.rowHeight = Storyboard.RowHeight // UITableViewAutomaticDimension
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Table view data source
-    
-    // Don't forget to set whether "clan" or "tags" based on section!
-    // Precondition: all players have a first name
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.PlayerCellIdentifier, forIndexPath: indexPath)
-        if let playerCell = cell as? PlayersTableViewCell {
-            if let player = fetchedResultsController?.objectAtIndexPath(indexPath) as? Player {
+        
+        ref = FIRDatabase.database().reference()
+        dataSource = SearchableFirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.PlayerCellIdentifier, tableView: tableView)
+        
+        // Essentially cellForRowAtIndexPath right here
+        dataSource?.populateCellBlock = { (cell, snapshot) in
+            if let playerCell = cell as? PlayersTableViewCell {
+                let uid = snapshot.key
+                let playerDict = snapshot.value as! [String : AnyObject]
+                let player = Player.init(uid: uid, dict: playerDict)
                 playerCell.player = player
-                return playerCell
+                
+            } else {
+                cell.textLabel?.text = snapshot.key
             }
         }
-        return cell
+        
+        dataSource?.searchText = "Ma"
+        
+        tableView.delegate = self
+        
+        tableView.estimatedRowHeight = Storyboard.RowHeight //tableView.rowHeight
+        tableView.rowHeight = Storyboard.RowHeight // UITableViewAutomaticDimension
+        
+        updatePlayerSearch()
     }
+    
+    func getQuery() -> FIRDatabaseQuery {
+        return self.ref.child("users")
+    }
+    
+    
+    private func updatePlayerSearch() {
+        dataSource?.searchText = search
+        /*
+         if search?.characters.count > 0 {
+         let splitNames = search?.characters.split{$0 == " "}.map(String.init)
+         if let nameArray = splitNames where nameArray.count > 0 {
+         // Handles multi-word last names, but only single-word first names
+         let firstNameSearch = nameArray.first!
+         let lastNameSearch = nameArray.suffix(nameArray.count-1).joinWithSeparator(" ")
+         
+         request.predicate = NSPredicate(format: "(firstName contains[c] %@ OR lastName contains[c] %@) OR lastName contains[c] %@", firstNameSearch, lastNameSearch, firstNameSearch)
+         }
+         } else {
+         // Fetch all players
+         request.predicate = nil
+         }
+         request.sortDescriptors = [
+         NSSortDescriptor(
+         key: "teamName",
+         ascending: true,
+         selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
+         ),
+         NSSortDescriptor(
+         key: "firstName",
+         ascending:  true,
+         selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
+         ),
+         NSSortDescriptor(
+         key: "lastName",
+         ascending:  true,
+         selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
+         )
+         ]
+         fetchedResultsController = NSFetchedResultsController(
+         fetchRequest: request,
+         managedObjectContext: context,
+         sectionNameKeyPath: "teamName",
+         cacheName: nil)
+         */
+    }
+    
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -122,9 +134,9 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
     }
     
     
-     // MARK: - Navigation
-     
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             switch identifier {
             case Storyboard.PlayerSegueIdentifier:
@@ -135,33 +147,33 @@ class PlayersTableViewController: CoreDataTableViewController, UISearchBarDelega
                         }
                     }
                 }
-
-            /*
-            // For future use
-            case Storyboard.BadgePopoverSegueIdentifier:
-                if let vc = segue.destinationViewController.contentViewController as? BadgePopoverViewController {
-                    
-                    // Populate popover
-                    if let badgeCell = sender as? BadgeCollectionViewCell {
-                        if let badge = badgeCell.badge {
-                            vc.titleLabel.text = badge.title
-                            vc.descriptionLabel.text = badge.description
-                        }
-                    }
-                    
-                    if let ppc = vc.popoverPresentationController {
-                        
-                        // Only upward popovers
-                        ppc.permittedArrowDirections = UIPopoverArrowDirection.Down
-                        
-                        // Want to be able to control the popover
-                        ppc.delegate = self
-                    }
-                }
-            */
+                
+                /*
+                 // For future use
+                 case Storyboard.BadgePopoverSegueIdentifier:
+                 if let vc = segue.destinationViewController.contentViewController as? BadgePopoverViewController {
+                 
+                 // Populate popover
+                 if let badgeCell = sender as? BadgeCollectionViewCell {
+                 if let badge = badgeCell.badge {
+                 vc.titleLabel.text = badge.title
+                 vc.descriptionLabel.text = badge.description
+                 }
+                 }
+                 
+                 if let ppc = vc.popoverPresentationController {
+                 
+                 // Only upward popovers
+                 ppc.permittedArrowDirections = UIPopoverArrowDirection.Down
+                 
+                 // Want to be able to control the popover
+                 ppc.delegate = self
+                 }
+                 }
+                 */
             default: break
             }
         }
-     }
+    }
     
 }

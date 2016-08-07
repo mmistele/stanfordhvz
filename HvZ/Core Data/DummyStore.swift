@@ -14,8 +14,9 @@ import UIKit
 
 class DummyStore {
     static func preloadData(inManagedObjectContext context: NSManagedObjectContext) {
+        /*
         
-        if let player = Player.playerWithUniqueId("mod1", inContext: context) {
+        if let player = Player.playerWithUniqueId("mod1") {
             player.firstName = "Mike"
             player.lastName = "Moderator"
             player.cellNumber = "3059159192"
@@ -35,7 +36,7 @@ class DummyStore {
             (UIApplication.sharedApplication().delegate as? AppDelegate)?.currentUser = player
         }
         
-        if let player = Player.playerWithUniqueId("oz1", inContext: context) {
+        if let player = Player.playerWithUniqueId("oz1") {
             player.firstName = "Michael"
             player.lastName = "Hang"
             player.cellNumber = "1234567899"
@@ -102,6 +103,7 @@ class DummyStore {
             player.teamName = Team.HumanTeamName
             player.team = Team.teamNamed(player.teamName!, inManagedObjectContext: context)
         }
+ */
         
     }
     

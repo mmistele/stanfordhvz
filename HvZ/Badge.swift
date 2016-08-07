@@ -21,7 +21,7 @@ struct Badge {
             title: "OZ",
             description: "Original Zombie",
             image: UIImage(named: "oz")) { (player) -> Bool in
-                return player.isOZ == nil || Bool(player.isOZ!)
+                return player.isOZ
             }
     ]
     
