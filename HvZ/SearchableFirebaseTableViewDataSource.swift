@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabaseUI
 import UIKit
 
-class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, FirebaseArrayDelegate {
+class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, FirebaseArrayDelegate {
     var unfilteredArray: FirebaseArray!
     var filteredArray: [FIRDataSnapshot]! {
         didSet {
@@ -20,6 +20,40 @@ class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fi
     }
     var indexMappingArray: [Int?]! // kept as large as unfilteredArray, with each value being the index in filteredArray that it shows up (or nil if doesn't appear)
     
+    var delegate: FilteredFirebaseTableViewDataSourceDelegate!
+    
+    // Or just delegate this function! Probably better.
+    var filter: ((FIRDataSnapshot, withSearch: String?) -> Bool) = { (snapshot, search) in
+        let childDict = snapshot.value as! [String : AnyObject]
+        if search == nil || search == "" {
+            return true
+        }
+        else if let searchedValue = childDict["firstName"] as? String {
+            if searchedValue.containsStringCaseInsensitive(search!) {
+                return true
+            }
+        }
+        return false
+        } {
+        didSet {
+            var newFilteredArray: [FIRDataSnapshot] = []
+            // Re-run filter
+            for uintIdx in 0 ..< unfilteredArray.count() {
+                let snapshot = unfilteredArray.objectAtIndex(uintIdx) as! FIRDataSnapshot
+                let i = Int(uintIdx)
+                
+                if filter(snapshot, withSearch: searchText) {
+                    indexMappingArray[i] = newFilteredArray.count
+                    newFilteredArray.append(snapshot)
+                }
+                else {
+                    indexMappingArray[i] = nil
+                }
+            }
+            filteredArray = newFilteredArray
+        }
+    }
+    
     var searchText: String? {
         didSet {
             var newFilteredArray: [FIRDataSnapshot] = []
@@ -27,20 +61,10 @@ class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fi
             for uintIdx in 0 ..< unfilteredArray.count() {
                 let snapshot = unfilteredArray.objectAtIndex(uintIdx) as! FIRDataSnapshot
                 let i = Int(uintIdx)
-                let childDict = snapshot.value as! [String : AnyObject]
                 
-                // Refactor this - DRY violated
-                if searchText == nil || searchText == "" {
+                if filter(snapshot, withSearch: searchText) {
                     indexMappingArray[i] = newFilteredArray.count
                     newFilteredArray.append(snapshot)
-                }
-                else if let searchedValue = childDict[childKey] as? String {
-                    if searchedValue.containsStringCaseInsensitive(searchText!) {
-                        indexMappingArray[i] = newFilteredArray.count
-                        newFilteredArray.append(snapshot)
-                    } else {
-                        indexMappingArray[i] = nil
-                    }
                 }
                 else {
                     indexMappingArray[i] = nil
@@ -58,11 +82,12 @@ class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fi
     var prototypeReuseIdentifier: String!
     var tableView: UITableView!
     
-    init(query: FIRDatabaseQuery, prototypeReuseIdentifier: String, tableView: UITableView) {
+    init(query: FIRDatabaseQuery, prototypeReuseIdentifier: String, tableView: UITableView, delegate: FilteredFirebaseTableViewDataSourceDelegate) {
         super.init()
         
         self.tableView = tableView
         tableView.dataSource = self
+        self.delegate = delegate
         
         unfilteredArray = FirebaseArray(query: query)
         unfilteredArray.delegate = self
@@ -72,6 +97,8 @@ class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fi
         self.prototypeReuseIdentifier = prototypeReuseIdentifier
         
     }
+    
+    // MARK: TableViewDataSource Methods
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -92,67 +119,88 @@ class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fi
         
     }
     
+    // MARK: Helper Functions
     
-    // MARK: FirebaseArrayDelegate Methods
-    
-    // Refactor the heck out of the below
-    
-    func childAdded(object: AnyObject!, atIndex index: UInt) {
-        // This isn't generic enough, but it works for the current use case. Maybe ask for a callback to run here?
-        let snapshot = object as! FIRDataSnapshot
-        let childDict = snapshot.value as! [String : AnyObject]
-        
-        let firebaseChildIndex = Int(index)
-        
-        if searchText == nil {
-            // then filteredIndex should just be the unfiltered one
-            indexMappingArray.insert(firebaseChildIndex, atIndex: firebaseChildIndex)
-            filteredArray.insert(snapshot, atIndex: firebaseChildIndex)
-        }
-        else if let searchedValue = childDict[childKey] as? String {
-            if searchedValue.containsStringCaseInsensitive(searchText!) {
-                var inserted = false
-                for unfilteredIndex in (firebaseChildIndex-1).stride(through: 0, by: -1) {
-                    // Find the index in unfilteredArray of the snapshot that'll be right before this one in filteredArray
-                    if let prevFilteredIndex = indexMappingArray[unfilteredIndex] {
-                        indexMappingArray.insert(unfilteredIndex+1, atIndex: firebaseChildIndex)
-                        filteredArray.insert(snapshot, atIndex: prevFilteredIndex+1)
-                        inserted = true
-                        break
-                    }
-                }
-                if !inserted {
-                    // Then there was no snapshot in filteredArray before this one - just add it to the beginning of the filteredArray
-                    indexMappingArray.insert(0, atIndex: firebaseChildIndex)
-                    filteredArray.insert(snapshot, atIndex: 0)
-                }
-                
-            } else {
-                // Fails the search query, don't add to filtered array!
-                indexMappingArray.insert(nil, atIndex: firebaseChildIndex)
+    /*
+     * Inserts the snapshot into the filtered array in a place that preserves the order in unfilteredArray.
+     * Keeps the filtered array synced with the index mapping array to facilitate filter maintenance in CRUD operations.
+     */
+    private func addToFilteredArray(snapshot: FIRDataSnapshot, withFirebaseIndex firebaseIndex: Int) {
+        var inserted = false
+        for unfilteredIndex in (firebaseIndex-1).stride(through: 0, by: -1) {
+            // Find the index in unfilteredArray of the snapshot that'll be right before this one in filteredArray
+            if let prevFilteredIndex = indexMappingArray[unfilteredIndex] {
+                indexMappingArray.insert(unfilteredIndex+1, atIndex: firebaseIndex)
+                filteredArray.insert(snapshot, atIndex: prevFilteredIndex+1)
+                inserted = true
+                break
             }
-        } else {
-            // Doesn't even have the key? Then ostensibly also fails the search query - don't add to filtered array!
-            indexMappingArray.insert(nil, atIndex: firebaseChildIndex)
+        }
+        if !inserted {
+            // Then there was no snapshot in filteredArray before this one - just add it to the beginning of the filteredArray
+            indexMappingArray.insert(0, atIndex: firebaseIndex)
+            filteredArray.insert(snapshot, atIndex: 0)
         }
         
     }
+    
+    private func removeFromFilteredArray(snapshot: FIRDataSnapshot, withFirebaseIndex firebaseIndex: Int) {
+        filteredArray.removeAtIndex(firebaseIndex)
+        
+        let unfilteredCount = Int(unfilteredArray.count())
+        for unfilteredIndex in (firebaseIndex).stride(through: unfilteredCount, by: 1) {
+            if indexMappingArray[unfilteredIndex] != nil {
+                indexMappingArray[unfilteredIndex]! -= 1
+            }
+        }
+    }
+    
+    // MARK: FirebaseArrayDelegate Methods
+    
+    func childAdded(object: AnyObject!, atIndex index: UInt) {
+        let snapshot = object as! FIRDataSnapshot
+        let firebaseIndex = Int(index)
+        
+        if filter(snapshot, withSearch: searchText) {
+            addToFilteredArray(snapshot, withFirebaseIndex: firebaseIndex)
+        } else {
+            // Fails the search query, don't add to filtered array!
+            indexMappingArray.insert(nil, atIndex: firebaseIndex)
+        }
+        
+    }
+    
     func childChanged(object: AnyObject!, atIndex index: UInt) {
         let snapshot = object as! FIRDataSnapshot
-        let firebaseChildIndex = Int(index)
-        if let indexInFilteredArray = indexMappingArray[firebaseChildIndex] {
-            filteredArray[indexInFilteredArray] = snapshot
+        let firebaseIndex = Int(index)
+        
+        if filter(snapshot, withSearch: searchText) {
+            if let indexInFilteredArray = indexMappingArray[firebaseIndex] {
+                // Simplest case: already in the filtered array, so it stays there, with an updated value
+                filteredArray[indexInFilteredArray] = snapshot
+            } else {
+                // Not in the filtered list? Add it!
+                addToFilteredArray(snapshot, withFirebaseIndex: firebaseIndex)
+            }
+        } else {
+            if indexMappingArray[firebaseIndex] != nil {
+                // It was in the filtered list, but now it shouldn't be
+                removeFromFilteredArray(snapshot, withFirebaseIndex: firebaseIndex)
+            }
+            // If it's wasn't, we don't need to do anything!
         }
     }
     
     func childRemoved(object: AnyObject!, atIndex index: UInt) {
-        let firebaseChildIndex = Int(index)
-        if let indexInFilteredArray = indexMappingArray[firebaseChildIndex] {
-            filteredArray.removeAtIndex(indexInFilteredArray)
-            indexMappingArray.removeAtIndex(firebaseChildIndex)
+        let snapshot = object as! FIRDataSnapshot
+        let firebaseIndex = Int(index)
+        if filter(snapshot, withSearch: searchText) {
+            removeFromFilteredArray(snapshot, withFirebaseIndex: firebaseIndex)
         }
+        indexMappingArray.removeAtIndex(firebaseIndex)
     }
     
+    // Below needs refactoring
     func childMoved(object: AnyObject!, fromIndex: UInt, toIndex: UInt) {
         let snapshot = object as! FIRDataSnapshot
         let fromFirebaseChildIndex = Int(fromIndex)
@@ -190,6 +238,11 @@ class SearchableFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fi
             indexMappingArray.insert(nil, atIndex: toFirebaseChildIndex)
         }
     }
+    
+}
+
+protocol FilteredFirebaseTableViewDataSourceDelegate {
+    func includeSnapshot(snapshot: FIRDataSnapshot) -> Bool
 }
 
 extension String {
