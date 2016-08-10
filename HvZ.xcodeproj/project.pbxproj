@@ -12,6 +12,7 @@
 		C9272F281D5A6FA900D00F3F /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F271D5A6FA900D00F3F /* ChatTableViewCell.swift */; };
 		C9272F2A1D5A918600D00F3F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F291D5A918600D00F3F /* Extensions.swift */; };
 		C9272F2C1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */; };
+		C9272F2E1D5B71D800D00F3F /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */; };
 		C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3561D0117C2007D76CD /* AppDelegate.swift */; };
 		C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956B35A1D0117C2007D76CD /* Main.storyboard */; };
 		C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */; };
@@ -91,6 +92,7 @@
 		C9272F271D5A6FA900D00F3F /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		C9272F291D5A918600D00F3F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterFirstSplitViewController.swift; sourceTree = "<group>"; };
+		C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 		C956B3531D0117C2007D76CD /* HvZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HvZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B3561D0117C2007D76CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956B35B1D0117C2007D76CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				C9272F291D5A918600D00F3F /* Extensions.swift */,
+				C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */,
 				C9C74C7C1D2AD55300799ACA /* GoogleService-Info.plist */,
 				C9A7D88F1D04C4CA00D7B2A4 /* Thriller.mp3 */,
 				C9A7D88B1D04B87F00D7B2A4 /* Growl.wav */,
@@ -545,6 +548,7 @@
 				C956B37B1D02AA54007D76CD /* LegacyTitleScreenViewController.swift in Sources */,
 				C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */,
 				C9A7D8941D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift in Sources */,
+				C9272F2E1D5B71D800D00F3F /* SortedDictionary.swift in Sources */,
 				C97930991D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift in Sources */,
 				C956B38E1D02D2BE007D76CD /* PlayersTableViewController.swift in Sources */,
 				C956B3981D02D744007D76CD /* ChatsTableViewController.swift in Sources */,
