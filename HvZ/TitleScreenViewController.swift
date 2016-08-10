@@ -13,6 +13,8 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
     
     @IBOutlet weak var signInButton: GIDSignInButton!
     
+    @IBOutlet weak var activityIndicatorModal: UIView!
+    
     private struct Storyboard {
         static let SignInSegueIdentifier = "Sign In"
     }
@@ -29,11 +31,18 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
     }
     
     func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
-        // STop animating activity indicator
+        // Stop animating activity indicator
+        UIView.transitionWithView(activityIndicatorModal, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            self.activityIndicatorModal.hidden = true
+            }, completion: nil)
+        
     }
     
     func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
         self.presentViewController(viewController, animated: true, completion: nil)
+        UIView.transitionWithView(activityIndicatorModal, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            self.activityIndicatorModal.hidden = false
+            }, completion: nil)
     }
     
     func signIn(signIn: GIDSignIn!, dismissViewController viewController: UIViewController!) {
@@ -103,5 +112,7 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
         userRef.updateChildValues(userValues)
 
     }
+    
+    
     
 }

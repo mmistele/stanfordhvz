@@ -11,22 +11,15 @@ import CoreData
 import Firebase
 import FirebaseDatabaseUI
 
-class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate {
+class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, FilteredFirebaseTableViewDataSourceDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource: SearchableFirebaseTableViewDataSource?
+    var dataSource: FilteredFirebaseTableViewDataSource?
     var ref: FIRDatabaseReference!
     
-    // Can make it an array of arrays to have each be a fetch
-    private var players = [Player]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
-    
     // Search every time you enter a letter
-    var search: String? { didSet { updatePlayerSearch() } }
+    var search: String? { didSet { dataSource?.filterUpdated() } }
     
     private struct Storyboard {
         static let PlayerCellIdentifier = "Player"
@@ -39,10 +32,8 @@ class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearc
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-        dataSource = SearchableFirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.PlayerCellIdentifier, tableView: tableView)
         
-        // Essentially cellForRowAtIndexPath right here
-        dataSource?.populateCellBlock = { (cell, snapshot) in
+        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.PlayerCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
             if let playerCell = cell as? PlayersTableViewCell {
                 let uid = snapshot.key
                 let playerDict = snapshot.value as! [String : AnyObject]
@@ -52,63 +43,20 @@ class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearc
             } else {
                 cell.textLabel?.text = snapshot.key
             }
-        }
-        
-        dataSource?.searchText = "Ma"
+        })
         
         tableView.delegate = self
         
         tableView.estimatedRowHeight = Storyboard.RowHeight //tableView.rowHeight
         tableView.rowHeight = Storyboard.RowHeight // UITableViewAutomaticDimension
         
-        updatePlayerSearch()
+        dataSource?.filterUpdated()
     }
     
     func getQuery() -> FIRDatabaseQuery {
-        return self.ref.child("users")
+        return self.ref.child("users").queryOrderedByChild("firstName")
     }
     
-    
-    private func updatePlayerSearch() {
-        dataSource?.searchText = search
-        /*
-         if search?.characters.count > 0 {
-         let splitNames = search?.characters.split{$0 == " "}.map(String.init)
-         if let nameArray = splitNames where nameArray.count > 0 {
-         // Handles multi-word last names, but only single-word first names
-         let firstNameSearch = nameArray.first!
-         let lastNameSearch = nameArray.suffix(nameArray.count-1).joinWithSeparator(" ")
-         
-         request.predicate = NSPredicate(format: "(firstName contains[c] %@ OR lastName contains[c] %@) OR lastName contains[c] %@", firstNameSearch, lastNameSearch, firstNameSearch)
-         }
-         } else {
-         // Fetch all players
-         request.predicate = nil
-         }
-         request.sortDescriptors = [
-         NSSortDescriptor(
-         key: "teamName",
-         ascending: true,
-         selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-         ),
-         NSSortDescriptor(
-         key: "firstName",
-         ascending:  true,
-         selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-         ),
-         NSSortDescriptor(
-         key: "lastName",
-         ascending:  true,
-         selector: #selector(NSString.localizedCaseInsensitiveCompare(_:))
-         )
-         ]
-         fetchedResultsController = NSFetchedResultsController(
-         fetchRequest: request,
-         managedObjectContext: context,
-         sectionNameKeyPath: "teamName",
-         cacheName: nil)
-         */
-    }
     
     
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -174,6 +122,28 @@ class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearc
             default: break
             }
         }
+    }
+    
+    // MARK: FilteredFirebaseTableViewDataSourceDelegate
+    
+    func includeSnapshot(snapshot: FIRDataSnapshot) -> Bool {
+        let childDict = snapshot.value as! [String : AnyObject]
+        if search == nil || search == "" {
+            return true
+        }
+        else if let firstName = childDict["firstName"] as? String, lastName = childDict["lastName"] as? String {
+            let splitNames = search?.characters.split{$0 == " "}.map(String.init)
+            if let nameArray = splitNames where nameArray.count > 0 {
+                // Handles multi-word last names, but only single-word first names
+                let firstNameSearch = nameArray.first!
+                let lastNameSearch = nameArray.suffix(nameArray.count-1).joinWithSeparator(" ")
+                
+                if (firstName.containsStringCaseInsensitive(firstNameSearch) || lastName.containsStringCaseInsensitive(lastNameSearch)) || lastName.containsStringCaseInsensitive(firstNameSearch) {
+                    return true
+                }
+            }
+        }
+        return false
     }
     
 }

@@ -32,14 +32,3 @@ class StatusViewController: UIViewController {
     }
 
 }
-
-/// Extension to make prepareForSegue() cleaner.
-extension UIViewController {
-    var contentViewController: UIViewController {
-        if let navcon = self as? UINavigationController {
-            return navcon.visibleViewController!
-        } else {
-            return self
-        }
-    }
-}

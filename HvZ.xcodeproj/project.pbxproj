@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9B790B2DF7BE6EDA62020091 /* Pods_HvZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828EB694E04A35C71828D953 /* Pods_HvZUITests.framework */; };
+		C9272F241D5A6DF800D00F3F /* FirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F231D5A6DF800D00F3F /* FirebaseTableViewController.swift */; };
+		C9272F281D5A6FA900D00F3F /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F271D5A6FA900D00F3F /* ChatTableViewCell.swift */; };
+		C9272F2A1D5A918600D00F3F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F291D5A918600D00F3F /* Extensions.swift */; };
+		C9272F2C1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */; };
 		C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3561D0117C2007D76CD /* AppDelegate.swift */; };
 		C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956B35A1D0117C2007D76CD /* Main.storyboard */; };
 		C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */; };
@@ -24,8 +28,8 @@
 		C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B38F1D02D386007D76CD /* MissionsTableViewController.swift */; };
 		C956B3921D02D3A2007D76CD /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3911D02D3A2007D76CD /* MissionViewController.swift */; };
 		C956B3941D02D4F8007D76CD /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3931D02D4F8007D76CD /* MessageTableViewCell.swift */; };
-		C956B3961D02D717007D76CD /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3951D02D717007D76CD /* MessageTableViewController.swift */; };
-		C956B3981D02D744007D76CD /* ConversationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3971D02D744007D76CD /* ConversationsTableViewController.swift */; };
+		C956B3961D02D717007D76CD /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3951D02D717007D76CD /* MessagesTableViewController.swift */; };
+		C956B3981D02D744007D76CD /* ChatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3971D02D744007D76CD /* ChatsTableViewController.swift */; };
 		C956B39A1D02DB06007D76CD /* RulesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3991D02DB06007D76CD /* RulesPageViewController.swift */; };
 		C956B39C1D02DBEC007D76CD /* InfectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B39B1D02DBEC007D76CD /* InfectionsViewController.swift */; };
 		C956B39E1D02DD09007D76CD /* MissionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */; };
@@ -33,7 +37,7 @@
 		C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */; };
 		C9792EF21D52DB7800F91AA2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9792EF11D52DB7800F91AA2 /* Login.storyboard */; };
 		C9792EF71D53E3EB00F91AA2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */; };
-		C97930991D567C0100F91AA2 /* SearchableFirebaseTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97930981D567C0100F91AA2 /* SearchableFirebaseTableViewDataSource.swift */; };
+		C97930991D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97930981D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift */; };
 		C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */; };
 		C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */; };
 		C990C3151D037A87000547AF /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3011D037A87000547AF /* Mission.swift */; };
@@ -83,6 +87,10 @@
 		1C50C77105236BD8B3EB5691 /* Pods-HvZUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HvZUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HvZUITests/Pods-HvZUITests.release.xcconfig"; sourceTree = "<group>"; };
 		620BE8E7D8A9D1DFA587928B /* Pods_HvZ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HvZ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		828EB694E04A35C71828D953 /* Pods_HvZUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HvZUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9272F231D5A6DF800D00F3F /* FirebaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewController.swift; sourceTree = "<group>"; };
+		C9272F271D5A6FA900D00F3F /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		C9272F291D5A918600D00F3F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterFirstSplitViewController.swift; sourceTree = "<group>"; };
 		C956B3531D0117C2007D76CD /* HvZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HvZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B3561D0117C2007D76CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956B35B1D0117C2007D76CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,8 +111,8 @@
 		C956B38F1D02D386007D76CD /* MissionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionsTableViewController.swift; sourceTree = "<group>"; };
 		C956B3911D02D3A2007D76CD /* MissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		C956B3931D02D4F8007D76CD /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		C956B3951D02D717007D76CD /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
-		C956B3971D02D744007D76CD /* ConversationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewController.swift; sourceTree = "<group>"; };
+		C956B3951D02D717007D76CD /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		C956B3971D02D744007D76CD /* ChatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTableViewController.swift; sourceTree = "<group>"; };
 		C956B3991D02DB06007D76CD /* RulesPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesPageViewController.swift; sourceTree = "<group>"; };
 		C956B39B1D02DBEC007D76CD /* InfectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfectionsViewController.swift; sourceTree = "<group>"; };
 		C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionMapViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +121,7 @@
 		C9792EF11D52DB7800F91AA2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C9792EF31D5392DA00F91AA2 /* HvZ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HvZ-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
-		C97930981D567C0100F91AA2 /* SearchableFirebaseTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableFirebaseTableViewDataSource.swift; sourceTree = "<group>"; };
+		C97930981D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredFirebaseTableViewDataSource.swift; sourceTree = "<group>"; };
 		C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseProfilePicViewController.swift; sourceTree = "<group>"; };
 		C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Mission+CoreDataProperties.swift"; path = "Core Data/Mission+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3011D037A87000547AF /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mission.swift; path = "Core Data/Mission.swift"; sourceTree = "<group>"; };
@@ -214,7 +222,8 @@
 		C956B3551D0117C2007D76CD /* HvZ */ = {
 			isa = PBXGroup;
 			children = (
-				C97930981D567C0100F91AA2 /* SearchableFirebaseTableViewDataSource.swift */,
+				C97930981D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift */,
+				C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */,
 				C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */,
 				C956B3561D0117C2007D76CD /* AppDelegate.swift */,
 				C990C2FF1D037A6A000547AF /* Core Data */,
@@ -224,6 +233,7 @@
 				C9A7D8891D042E4900D7B2A4 /* BadgeCollectionViewController.swift */,
 				C9A7D8851D041CBE00D7B2A4 /* BadgePopoverViewController.swift */,
 				C956B38D1D02D2BE007D76CD /* PlayersTableViewController.swift */,
+				C9272F231D5A6DF800D00F3F /* FirebaseTableViewController.swift */,
 				C9A7D8871D0422DB00D7B2A4 /* PlayerViewController.swift */,
 				C990C32C1D03810A000547AF /* PlayersTableViewCell.swift */,
 				C990C33C1D03D999000547AF /* Badge.swift */,
@@ -252,6 +262,7 @@
 		C956B3791D029B5B007D76CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9272F291D5A918600D00F3F /* Extensions.swift */,
 				C9C74C7C1D2AD55300799ACA /* GoogleService-Info.plist */,
 				C9A7D88F1D04C4CA00D7B2A4 /* Thriller.mp3 */,
 				C9A7D88B1D04B87F00D7B2A4 /* Growl.wav */,
@@ -285,8 +296,9 @@
 		C956B39F1D02DE20007D76CD /* Messaging */ = {
 			isa = PBXGroup;
 			children = (
-				C956B3971D02D744007D76CD /* ConversationsTableViewController.swift */,
-				C956B3951D02D717007D76CD /* MessageTableViewController.swift */,
+				C9272F271D5A6FA900D00F3F /* ChatTableViewCell.swift */,
+				C956B3971D02D744007D76CD /* ChatsTableViewController.swift */,
+				C956B3951D02D717007D76CD /* MessagesTableViewController.swift */,
 				C956B3931D02D4F8007D76CD /* MessageTableViewCell.swift */,
 			);
 			name = Messaging;
@@ -529,18 +541,19 @@
 				C990C3271D037A87000547AF /* Conversation.swift in Sources */,
 				C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */,
 				C990C33D1D03D999000547AF /* Badge.swift in Sources */,
+				C9272F281D5A6FA900D00F3F /* ChatTableViewCell.swift in Sources */,
 				C956B37B1D02AA54007D76CD /* LegacyTitleScreenViewController.swift in Sources */,
 				C956B3901D02D386007D76CD /* MissionsTableViewController.swift in Sources */,
 				C9A7D8941D052ABC00D7B2A4 /* KeyboardAdaptiveViewController.swift in Sources */,
-				C97930991D567C0100F91AA2 /* SearchableFirebaseTableViewDataSource.swift in Sources */,
+				C97930991D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift in Sources */,
 				C956B38E1D02D2BE007D76CD /* PlayersTableViewController.swift in Sources */,
-				C956B3981D02D744007D76CD /* ConversationsTableViewController.swift in Sources */,
+				C956B3981D02D744007D76CD /* ChatsTableViewController.swift in Sources */,
 				C9A7D88A1D042E4900D7B2A4 /* BadgeCollectionViewController.swift in Sources */,
 				C9A7D8881D0422DB00D7B2A4 /* PlayerViewController.swift in Sources */,
 				C956B38B1D02CF39007D76CD /* StatusViewController.swift in Sources */,
 				C990C32F1D0396CF000547AF /* DummyStore.swift in Sources */,
 				C990C3291D037DCB000547AF /* CoreDataTableViewController.swift in Sources */,
-				C956B3961D02D717007D76CD /* MessageTableViewController.swift in Sources */,
+				C956B3961D02D717007D76CD /* MessagesTableViewController.swift in Sources */,
 				C990C31F1D037A87000547AF /* Message.swift in Sources */,
 				C990C3201D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift in Sources */,
 				C990C31C1D037A87000547AF /* Announcement+CoreDataProperties.swift in Sources */,
@@ -553,15 +566,18 @@
 				C990C31D1D037A87000547AF /* Announcement.swift in Sources */,
 				C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */,
 				C990C3181D037A87000547AF /* Tag+CoreDataProperties.swift in Sources */,
+				C9272F2C1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift in Sources */,
 				C990C3221D037A87000547AF /* Team+CoreDataProperties.swift in Sources */,
 				C956B3851D02CD3A007D76CD /* SignupSUNetIDViewController.swift in Sources */,
 				C9A7D8861D041CBE00D7B2A4 /* BadgePopoverViewController.swift in Sources */,
 				C956B3811D02CAB2007D76CD /* SignupNameViewController.swift in Sources */,
 				C956B39C1D02DBEC007D76CD /* InfectionsViewController.swift in Sources */,
 				C990C31A1D037A87000547AF /* Clan+CoreDataProperties.swift in Sources */,
+				C9272F241D5A6DF800D00F3F /* FirebaseTableViewController.swift in Sources */,
 				C956B3921D02D3A2007D76CD /* MissionViewController.swift in Sources */,
 				C990C3211D037A87000547AF /* MissionWaypoint.swift in Sources */,
 				C956B39E1D02DD09007D76CD /* MissionMapViewController.swift in Sources */,
+				C9272F2A1D5A918600D00F3F /* Extensions.swift in Sources */,
 				C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */,
 				C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */,
 				C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */,

@@ -22,72 +22,36 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
     
     var delegate: FilteredFirebaseTableViewDataSourceDelegate!
     
-    // Or just delegate this function! Probably better.
-    var filter: ((FIRDataSnapshot, withSearch: String?) -> Bool) = { (snapshot, search) in
-        let childDict = snapshot.value as! [String : AnyObject]
-        if search == nil || search == "" {
-            return true
-        }
-        else if let searchedValue = childDict["firstName"] as? String {
-            if searchedValue.containsStringCaseInsensitive(search!) {
-                return true
+    
+    func filterUpdated() {
+        var newFilteredArray: [FIRDataSnapshot] = []
+        // Re-run filter
+        for uintIdx in 0 ..< unfilteredArray.count() {
+            let snapshot = unfilteredArray.objectAtIndex(uintIdx) as! FIRDataSnapshot
+            let i = Int(uintIdx)
+            
+            if delegate.includeSnapshot(snapshot) {
+                indexMappingArray[i] = newFilteredArray.count
+                newFilteredArray.append(snapshot)
+            }
+            else {
+                indexMappingArray[i] = nil
             }
         }
-        return false
-        } {
-        didSet {
-            var newFilteredArray: [FIRDataSnapshot] = []
-            // Re-run filter
-            for uintIdx in 0 ..< unfilteredArray.count() {
-                let snapshot = unfilteredArray.objectAtIndex(uintIdx) as! FIRDataSnapshot
-                let i = Int(uintIdx)
-                
-                if filter(snapshot, withSearch: searchText) {
-                    indexMappingArray[i] = newFilteredArray.count
-                    newFilteredArray.append(snapshot)
-                }
-                else {
-                    indexMappingArray[i] = nil
-                }
-            }
-            filteredArray = newFilteredArray
-        }
+        filteredArray = newFilteredArray
     }
     
-    var searchText: String? {
-        didSet {
-            var newFilteredArray: [FIRDataSnapshot] = []
-            // Re-run filter
-            for uintIdx in 0 ..< unfilteredArray.count() {
-                let snapshot = unfilteredArray.objectAtIndex(uintIdx) as! FIRDataSnapshot
-                let i = Int(uintIdx)
-                
-                if filter(snapshot, withSearch: searchText) {
-                    indexMappingArray[i] = newFilteredArray.count
-                    newFilteredArray.append(snapshot)
-                }
-                else {
-                    indexMappingArray[i] = nil
-                }
-            }
-            filteredArray = newFilteredArray
-        }
-    }
-    var childKey: String = "firstName" {
-        didSet {
-            // Uh... can this be changed?
-        }
-    }
     var populateCellBlock: ((UITableViewCell, FIRDataSnapshot) -> Void)!
     var prototypeReuseIdentifier: String!
     var tableView: UITableView!
     
-    init(query: FIRDatabaseQuery, prototypeReuseIdentifier: String, tableView: UITableView, delegate: FilteredFirebaseTableViewDataSourceDelegate) {
+    init(query: FIRDatabaseQuery, prototypeReuseIdentifier: String, tableView: UITableView, delegate: FilteredFirebaseTableViewDataSourceDelegate, populateCellBlock: ((UITableViewCell, FIRDataSnapshot) -> Void)) {
         super.init()
         
         self.tableView = tableView
         tableView.dataSource = self
         self.delegate = delegate
+        self.populateCellBlock = populateCellBlock
         
         unfilteredArray = FirebaseArray(query: query)
         unfilteredArray.delegate = self
@@ -96,6 +60,12 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
         
         self.prototypeReuseIdentifier = prototypeReuseIdentifier
         
+    }
+    
+    func resetQueryTo(query: FIRDatabaseQuery) {
+        indexMappingArray.removeAll()
+        filteredArray.removeAll()
+        unfilteredArray.query = query
     }
     
     // MARK: TableViewDataSource Methods
@@ -161,7 +131,7 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
         let snapshot = object as! FIRDataSnapshot
         let firebaseIndex = Int(index)
         
-        if filter(snapshot, withSearch: searchText) {
+        if delegate.includeSnapshot(snapshot) {
             addToFilteredArray(snapshot, withFirebaseIndex: firebaseIndex)
         } else {
             // Fails the search query, don't add to filtered array!
@@ -174,7 +144,7 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
         let snapshot = object as! FIRDataSnapshot
         let firebaseIndex = Int(index)
         
-        if filter(snapshot, withSearch: searchText) {
+        if delegate.includeSnapshot(snapshot) {
             if let indexInFilteredArray = indexMappingArray[firebaseIndex] {
                 // Simplest case: already in the filtered array, so it stays there, with an updated value
                 filteredArray[indexInFilteredArray] = snapshot
@@ -194,7 +164,7 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
     func childRemoved(object: AnyObject!, atIndex index: UInt) {
         let snapshot = object as! FIRDataSnapshot
         let firebaseIndex = Int(index)
-        if filter(snapshot, withSearch: searchText) {
+        if delegate.includeSnapshot(snapshot) {
             removeFromFilteredArray(snapshot, withFirebaseIndex: firebaseIndex)
         }
         indexMappingArray.removeAtIndex(firebaseIndex)
@@ -243,10 +213,4 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
 
 protocol FilteredFirebaseTableViewDataSourceDelegate {
     func includeSnapshot(snapshot: FIRDataSnapshot) -> Bool
-}
-
-extension String {
-    func containsStringCaseInsensitive(str: String) -> Bool {
-        return self.lowercaseString.containsString(str.lowercaseString)
-    }
 }

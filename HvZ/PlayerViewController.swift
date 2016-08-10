@@ -185,17 +185,10 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
             }
             tagsLabel.text = "\(tagCount!) Tags"
             
-            editButton.hidden = true
-            
-            var currentUserUnique: String?
-            if let currentUser = (UIApplication.sharedApplication().delegate as? AppDelegate)?.currentUser {
-                
-                // This used to performBlockAndWait...
-                currentUserUnique = currentUser.uid
-                
-                if currentUserUnique == unique {
-                    editButton.hidden = false
-                }
+            if FIRAuth.auth()?.currentUser?.uid == unique {
+                editButton.hidden = false
+            } else {
+                editButton.hidden = true
             }
         }
         
