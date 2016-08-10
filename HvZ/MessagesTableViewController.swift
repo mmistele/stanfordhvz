@@ -8,29 +8,59 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabaseUI
 
-class MessagesTableViewController: FirebaseTableViewController {
+class MessagesTableViewController: UIViewController, UITableViewDelegate, UITextViewDelegate {
     
     var chatId: String?
     
+    lazy var ref: FIRDatabaseReference! = FIRDatabase.database().reference()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var messageTextView: UITextView!
+    
+    @IBOutlet weak var sendButton: UIButton!
+        
+    @IBAction func sendButtonTapped(sender: UIButton) {
+        
+    }
+    
+    var dataSource: FirebaseTableViewDataSource?
+
+    
     private struct Storyboard {
         static let MessageCellIdentifier = "Message"
+        static let RowHeight = CGFloat(80)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.MessageCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
-            
+        dataSource = FirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.MessageCellIdentifier, view: tableView)
+        dataSource?.populateCellWithBlock({ (cell, snapshotObj) in
+            let snapshot = snapshotObj as! FIRDataSnapshot
             let messageData = snapshot.value as! [String : AnyObject]
             let messageCell = cell as! MessageTableViewCell
             
             messageCell.textLabel?.text = messageData["message"] as? String
             messageCell.messageId = snapshot.key
         })
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        
+        tableView.estimatedRowHeight = Storyboard.RowHeight //tableView.rowHeight
+        tableView.rowHeight = Storyboard.RowHeight // UITableViewAutomaticDimension
+        
+//        setUpAdaptation(forView: adaptingStackView)
     }
     
-    override func getQuery() -> FIRDatabaseQuery {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func getQuery() -> FIRDatabaseQuery {
         if chatId != nil {
             return ref.child("messages").child(chatId!)
         } else {
