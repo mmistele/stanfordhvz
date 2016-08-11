@@ -186,7 +186,7 @@
                   moduleName = "HvZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt/Developer/HvZ/HvZ/TitleScreenViewController.swift"
-                  timestampString = "492572789.415741"
+                  timestampString = "492583254.151115"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -201,7 +201,7 @@
                   moduleName = "HvZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt/Developer/HvZ/HvZ/TitleScreenViewController.swift"
-                  timestampString = "492572789.415896"
+                  timestampString = "492583254.151292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
@@ -266,7 +266,7 @@
                   moduleName = "HvZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt/Developer/HvZ/HvZ/TitleScreenViewController.swift"
-                  timestampString = "492572789.418007"
+                  timestampString = "492583254.153287"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "35"
@@ -281,7 +281,7 @@
                   moduleName = "HvZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt/Developer/HvZ/HvZ/TitleScreenViewController.swift"
-                  timestampString = "492572789.418166"
+                  timestampString = "492583254.153431"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "36"
@@ -304,22 +304,6 @@
             startingLineNumber = "69"
             endingLineNumber = "69"
             landmarkName = "signIn(_:didSignInForUser:withError:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HvZ/KeyboardAdaptiveViewController.swift"
-            timestampString = "492572789.096321"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "subscribeToKeyboardHideAnimation()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -455,16 +455,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xRE-aF-t0n" firstAttribute="width" secondItem="k2F-KY-iF3" secondAttribute="width" id="03o-WF-uBg"/>
-                            <constraint firstItem="kO0-pu-6SC" firstAttribute="top" secondItem="xRE-aF-t0n" secondAttribute="bottom" id="QIa-U0-0jQ"/>
+                            <constraint firstItem="kO0-pu-6SC" firstAttribute="top" secondItem="xRE-aF-t0n" secondAttribute="bottom" priority="999" id="QIa-U0-0jQ"/>
                             <constraint firstItem="xRE-aF-t0n" firstAttribute="centerX" secondItem="k2F-KY-iF3" secondAttribute="centerX" id="XKy-bK-VFO"/>
                             <constraint firstItem="xRE-aF-t0n" firstAttribute="top" secondItem="FRQ-QN-VTO" secondAttribute="bottom" id="jHd-h7-ETX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zk3-oT-y9Z"/>
                     <connections>
-                        <outlet property="bottomConstraint" destination="QIa-U0-0jQ" id="WPG-Gh-mND"/>
+                        <outlet property="adaptingView" destination="xRE-aF-t0n" id="QzE-I0-sOM"/>
                         <outlet property="messageTextView" destination="6Du-bH-3HS" id="CiL-ca-fhr"/>
-                        <outlet property="outerStackView" destination="xRE-aF-t0n" id="avq-Qe-aei"/>
                         <outlet property="sendButton" destination="43R-qU-xJo" id="Gpl-Tc-VfN"/>
                         <outlet property="tableView" destination="yMH-tA-snY" id="Gub-9X-W3Y"/>
                     </connections>

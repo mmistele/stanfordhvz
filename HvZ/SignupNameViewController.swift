@@ -26,7 +26,6 @@ class SignupNameViewController: KeyboardAdaptiveViewController, UITextFieldDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpAdaptationFromCenteredY(forView: textFieldsStackView)
         subscribeToKeyboardAnimations()
     }
     

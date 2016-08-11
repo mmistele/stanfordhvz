@@ -26,21 +26,8 @@ class MessagesTableViewController: KeyboardAdaptiveViewController, UITableViewDe
         
     }
     
-    @IBOutlet weak var outerStackView: UIStackView! {
-        didSet {
-            adaptingView = outerStackView
-        }
-    }
-    
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint! {
-        didSet {
-            constraintToReplace = bottomConstraint
-        }
-    }
-    
     var dataSource: FirebaseTableViewDataSource?
 
-    
     private struct Storyboard {
         static let MessageCellIdentifier = "Message"
         static let RowHeight = CGFloat(80)

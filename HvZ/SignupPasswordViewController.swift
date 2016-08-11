@@ -24,7 +24,6 @@ class SignupPasswordViewController: KeyboardAdaptiveViewController, UITextFieldD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpAdaptationFromCenteredY(forView: fieldStackView)
         subscribeToKeyboardAnimations()
     }
     
