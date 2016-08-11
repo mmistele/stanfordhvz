@@ -114,7 +114,7 @@ class MessagesTableViewController: KeyboardAdaptiveViewController, UITableViewDe
     
     func textViewDidChange(textView: UITextView) {
         UIView.animateWithDuration(0.25, animations: {
-            self.sendButton.hidden = !textView.text.isEmpty
+            self.sendButton.hidden = textView.text.isEmpty
             self.resizeTextViewToFitText()
         })
     }
