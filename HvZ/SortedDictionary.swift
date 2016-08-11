@@ -12,7 +12,7 @@
 import Foundation
 
 /// Contains a dictionary and an array of its keys ordered using its isOrderedBefore property.
-struct SortedDictionary<Tk: Hashable, Tv> {
+class SortedDictionary<Tk: Hashable, Tv> {
     
     /// Array of keys ordered using isOrderedBefore.
     var keys: Array<Tk> = []

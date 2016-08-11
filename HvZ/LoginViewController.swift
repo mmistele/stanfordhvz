@@ -39,7 +39,7 @@ class LoginViewController: KeyboardAdaptiveViewController, UITextFieldDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpAdaptation(forView: fieldsStackView)
+        setUpAdaptationFromCenteredY(forView: fieldsStackView)
         subscribeToKeyboardAnimations()
         
         GIDSignIn.sharedInstance().uiDelegate = self

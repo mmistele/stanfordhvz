@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabaseUI
 
-class MessagesTableViewController: UIViewController, UITableViewDelegate, UITextViewDelegate {
+class MessagesTableViewController: KeyboardAdaptiveViewController, UITableViewDelegate, UITextViewDelegate {
     
     var chatId: String?
     
@@ -24,6 +24,18 @@ class MessagesTableViewController: UIViewController, UITableViewDelegate, UIText
         
     @IBAction func sendButtonTapped(sender: UIButton) {
         
+    }
+    
+    @IBOutlet weak var outerStackView: UIStackView! {
+        didSet {
+            adaptingView = outerStackView
+        }
+    }
+    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint! {
+        didSet {
+            constraintToReplace = bottomConstraint
+        }
     }
     
     var dataSource: FirebaseTableViewDataSource?
@@ -64,8 +76,10 @@ class MessagesTableViewController: UIViewController, UITableViewDelegate, UIText
         if chatId != nil {
             return ref.child("messages").child(chatId!)
         } else {
-            return ref.child("gibberish")
+            return ref.child("bogusKeyToDisplayNothing")
         }
     }
+    
+    
     
 }

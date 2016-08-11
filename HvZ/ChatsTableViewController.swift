@@ -19,7 +19,7 @@ class ChatsTableViewController: FirebaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.ChatCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
+        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), sectionNameKey: nil, prototypeReuseIdentifier: Storyboard.ChatCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
             
             if let chatCell = cell as? ChatTableViewCell {
                 

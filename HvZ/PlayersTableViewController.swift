@@ -33,7 +33,7 @@ class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearc
         
         ref = FIRDatabase.database().reference()
         
-        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), prototypeReuseIdentifier: Storyboard.PlayerCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
+        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), sectionNameKey: "team", prototypeReuseIdentifier: Storyboard.PlayerCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
             if let playerCell = cell as? PlayersTableViewCell {
                 let uid = snapshot.key
                 let playerDict = snapshot.value as! [String : AnyObject]

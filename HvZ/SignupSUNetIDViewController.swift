@@ -24,7 +24,7 @@ class SignupSUNetIDViewController: KeyboardAdaptiveViewController, UITextFieldDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpAdaptation(forView: fieldStackView)
+        setUpAdaptationFromCenteredY(forView: fieldStackView)
         subscribeToKeyboardAnimations()
     }
     

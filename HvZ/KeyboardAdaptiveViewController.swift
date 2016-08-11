@@ -11,7 +11,7 @@ import UIKit
 class KeyboardAdaptiveViewController: UIViewController {
 
     /// Can be set by subclasses - see setUpAdaptation() for default
-    internal var centerYConstraint: NSLayoutConstraint?
+    internal var constraintToReplace: NSLayoutConstraint?
     
     /// Private variables for adapting to the keyboard
     private var bottomConstraint: NSLayoutConstraint?
@@ -24,12 +24,14 @@ class KeyboardAdaptiveViewController: UIViewController {
     /// The view that changes its constraints to not be covered by the keyboard
     internal var adaptingView: UIView?
     
+    private var keyboardShowing: Bool = false
+    
     /*
      * Called by subclasses once their view is loaded.
      */
-    internal func setUpAdaptation(forView adaptView: UIView) {
+    internal func setUpAdaptationFromCenteredY(forView adaptView: UIView) {
         adaptingView = adaptView
-        centerYConstraint = NSLayoutConstraint(
+        constraintToReplace = NSLayoutConstraint(
             item: adaptingView!,
             attribute: .CenterY,
             relatedBy: .Equal,
@@ -37,7 +39,7 @@ class KeyboardAdaptiveViewController: UIViewController {
             attribute: .CenterY,
             multiplier: 1,
             constant: 0)
-        view.addConstraint(centerYConstraint!)
+        view.addConstraint(constraintToReplace!)
     }
     
     /*
@@ -75,7 +77,7 @@ class KeyboardAdaptiveViewController: UIViewController {
         let center = NSNotificationCenter.defaultCenter()
         keyboardShowObserver = center.addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
             [weak self] (notification) in
-            if self != nil && self!.adaptingView != nil {
+            if self != nil && self!.adaptingView != nil && !self!.keyboardShowing {
                 
                 // Get end location of the keyboard
                 // Following two lines adapted from http://stackoverflow.com/questions/25091765/how-to-get-a-value-from-nsvalue-in-swift
@@ -91,7 +93,7 @@ class KeyboardAdaptiveViewController: UIViewController {
                     self!.view.layoutIfNeeded()
                     
                     // Detach view from the center
-                    if let oldConstraint = self!.centerYConstraint {
+                    if let oldConstraint = self!.constraintToReplace {
                         self!.view.removeConstraint(oldConstraint)
                     }
                     
@@ -117,6 +119,7 @@ class KeyboardAdaptiveViewController: UIViewController {
                     }
                     
                 }
+                self!.keyboardShowing = true
             }
             })
     }
@@ -128,16 +131,16 @@ class KeyboardAdaptiveViewController: UIViewController {
         let center = NSNotificationCenter.defaultCenter()
         keyboardHideObserver = center.addObserverForName(UIKeyboardWillHideNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: {
             [weak self] (notification) in
-            if self != nil {
+            if self != nil && self!.keyboardShowing {
                 
                 self!.view.layoutIfNeeded()
                 
-                // Detach view from the center
+                // Detach view from where it got moved to
                 if let oldConstraint = self!.bottomConstraint {
                     self!.view.removeConstraint(oldConstraint)
                 }
                 
-                self!.view.addConstraint(self!.centerYConstraint!)
+                self!.view.addConstraint(self!.constraintToReplace!)
                 
                 var animationDuration = 3.0
                 if let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double {
@@ -146,6 +149,7 @@ class KeyboardAdaptiveViewController: UIViewController {
                 UIView.animateWithDuration(animationDuration) {
                     self!.view.layoutIfNeeded()
                 }
+                self!.keyboardShowing = false
             }
             
         })
