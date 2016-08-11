@@ -27,6 +27,19 @@ class Player {
     var tagCount: Int = 0
     var tags: [Tag] = []
     var team: String = "humans"
+    
+    var fullName: String {
+        get {
+            var names = [String]()
+            if firstName != nil {
+                names.append(firstName!)
+            }
+            if lastName != nil {
+                names.append(lastName!)
+            }
+            return names.joinWithSeparator(" ")
+        }
+    }
 
     var image: NSData? = DummyStore.SampleProfileImages?[0]
     
@@ -45,6 +58,12 @@ class Player {
                 completion(player: nil)
             }
         })
+    }
+    
+    convenience init(snapshot: FIRDataSnapshot) {
+        let uid = snapshot.key
+        let dict = snapshot.value as! [String : AnyObject]
+        self.init(uid: uid, dict: dict)
     }
     
     init(uid: String, dict: [String: AnyObject]) {

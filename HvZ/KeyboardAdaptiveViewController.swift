@@ -13,11 +13,15 @@ import UIKit
  * would otherwise cover it.
  * To avoid constraint conflicts, set the priority of the constraint this move would break
  * to a value less than 1000 (UILayoutPriorityRequired).
+ * For convenience, also has a tap gesture for dismissing the keyboard when you tap outside
+ * whatever brought up the keyboard.
  */
 
 class KeyboardAdaptiveViewController: UIViewController {
     
     private var adaptToKeyboardConstraint: NSLayoutConstraint!
+    
+    internal var tapRecognizer: UITapGestureRecognizer!
     
     // How many pixels to separate the stack view from the keyboard
     internal var keyboardSeparation = CGFloat(0)
@@ -40,7 +44,14 @@ class KeyboardAdaptiveViewController: UIViewController {
         adaptToKeyboardConstraint.priority = UILayoutPriorityRequired
         adaptToKeyboardConstraint.active = false
         view.addConstraint(adaptToKeyboardConstraint)
-
+        
+        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tappedOnView(_:)))
+        tapRecognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func tappedOnView(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     /*
@@ -87,7 +98,13 @@ class KeyboardAdaptiveViewController: UIViewController {
         }
         else if notification.name == UIKeyboardWillChangeFrameNotification {
             let spaceForKeyboard = view.bounds.maxY - adaptingView.frame.maxY
+            
+            
             adaptToKeyboardConstraint.constant = 0 - keyboardViewEndFrame.height - keyboardSeparation
+
+            if let tabBar = tabBarController?.tabBar {
+                adaptToKeyboardConstraint.constant += tabBar.frame.size.height
+            }
             
             if keyboardViewEndFrame.height >= spaceForKeyboard {
                 adaptToKeyboardConstraint.active = true

@@ -22,20 +22,8 @@ class ChatsTableViewController: FirebaseTableViewController {
         dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), sectionNameKey: nil, prototypeReuseIdentifier: Storyboard.ChatCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
             
             if let chatCell = cell as? ChatTableViewCell {
-                
                 chatCell.chatId = snapshot.key
-                let chatData = snapshot.value as! [String : AnyObject]
-                
-                let title = chatData["title"] as? String ?? "Unknown"
-                let lastMessage = chatData["lastMessage"] as? String
-                
-                chatCell.titleLabel.text = title
-                chatCell.lastMessageLabel.text = lastMessage
-                
-                if let secondsSince1970 = chatData["timestamp"] as? Double {
-                    let timestamp = NSDate(timeIntervalSince1970: secondsSince1970)
-                    chatCell.lastMessageTimestamp = timestamp
-                }
+                // The rest is populated by the ChatTableViewCell itself
             }
         })
         
@@ -49,7 +37,8 @@ class ChatsTableViewController: FirebaseTableViewController {
     }
     
     override func getQuery() -> FIRDatabaseQuery {
-        return ref.child("chats")
+        let userId = FIRAuth.auth()!.currentUser!.uid
+        return ref.child("user-chats").child(userId)
     }
     
     // MARK: - Navigation

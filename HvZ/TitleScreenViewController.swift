@@ -53,6 +53,9 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
                 withError error: NSError!) {
         if let error = error {
             print(error.localizedDescription)
+            UIView.transitionWithView(activityIndicatorModal, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                self.activityIndicatorModal.hidden = true
+                }, completion: nil)
             return
         }
         
@@ -65,9 +68,12 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
         let authentication = user.authentication
         let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
                                                                      accessToken: authentication.accessToken)
-        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+        FIRAuth.auth()?.signInWithCredential(credential) {[weak self] (user, error) in
             if let error = error {
                 print(error.localizedDescription)
+                UIView.transitionWithView(self!.activityIndicatorModal, duration: 0.4, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+                    self!.activityIndicatorModal.hidden = false
+                    }, completion: nil)
                 return
             } else if user != nil {
                 let userRef = FIRDatabase.database().reference().child("users").child(user!.uid)
@@ -80,10 +86,10 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
                             "email": email
                         ]
                         userRef.updateChildValues(userValues)
-                        self.loadDummyDataForUserWithId(user!.uid)
+                        self!.loadDummyDataForUserWithId(user!.uid)
                     }
                     
-                    self.performSegueWithIdentifier(Storyboard.SignInSegueIdentifier, sender: nil)
+                    self!.performSegueWithIdentifier(Storyboard.SignInSegueIdentifier, sender: nil)
 
                 })
             }

@@ -11,7 +11,7 @@ import CoreData
 import Firebase
 import FirebaseDatabaseUI
 
-class PlayersTableViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, FilteredFirebaseTableViewDataSourceDelegate {
+class PlayersTableViewController: KeyboardAdaptiveViewController, UITableViewDelegate, UISearchBarDelegate, UIPopoverPresentationControllerDelegate, FilteredFirebaseTableViewDataSourceDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

@@ -98,9 +98,9 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
         return cell
     }
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
-        return filteredSnapshots.keys
-    }
+//    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+//        return filteredSnapshots.keys
+//    }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if filteredSnapshots.numberOfSections() > 0 {
@@ -110,9 +110,9 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
         }
     }
     
-    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
-        return index
-    }
+//    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+//        return index
+//    }
     
     
     // MARK: Helper Functions
@@ -121,9 +121,8 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
      * Returns the section name of the snapshot, or "" if there is none.
      */
     private func sectionNameForSnapshot(snapshot: FIRDataSnapshot) -> String {
-        let snapshotValues = snapshot.value as! [String : AnyObject]
         var sectionName = ""
-        if sectionNameKey != nil {
+        if let snapshotValues = snapshot.value as? [String : AnyObject] where sectionNameKey != nil {
             sectionName = snapshotValues[sectionNameKey!] as? String ?? ""
         }
         return sectionName
@@ -263,6 +262,8 @@ class FilteredFirebaseTableViewDataSource: NSObject, UITableViewDataSource, Fire
             snapshotIndexPaths[toFirebaseChildIndex] = (sectionName, insertionRowIndex)
             filteredSnapshots.removeFromSection(sectionName, atIndex: fromRowIndex)
             filteredSnapshots.insert(snapshot, intoSectionNamed: sectionName, atIndex: insertionRowIndex)
+            tableView.reloadData()
+
             
         } else {
             snapshotIndexPaths.removeAtIndex(fromFirebaseChildIndex)

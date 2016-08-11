@@ -457,10 +457,10 @@
             </objects>
             <point key="canvasLocation" x="-171" y="479"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="Yxg-tV-T70">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="Main Navigation Controller" id="Xq9-Td-r1Z" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="Main Tab Bar Controller" id="Xq9-Td-r1Z" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfe-1F-Rng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130.5" y="1455"/>
