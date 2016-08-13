@@ -15,8 +15,16 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
     
     @IBOutlet weak var activityIndicatorModal: UIView!
     
+    @IBOutlet weak var activityIndicatorBox: UIView! {
+        didSet {
+            activityIndicatorBox.layer.cornerRadius = Storyboard.ActivityIndicatorBoxCornerRadius
+        }
+    }
+    
     private struct Storyboard {
         static let SignInSegueIdentifier = "Sign In"
+        static let TransitionAnimationDuration = 0.5
+        static let ActivityIndicatorBoxCornerRadius = CGFloat(10)
     }
     
     override func viewDidLoad() {
@@ -25,6 +33,10 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
         GIDSignIn.sharedInstance().uiDelegate = self
         signInButton.style = .Standard
         signInButton.colorScheme = .Light
+        
+        UIView.animateWithDuration(Storyboard.TransitionAnimationDuration) {
+            self.signInButton.hidden = false
+        }
         
         GIDSignIn.sharedInstance().signInSilently()
     

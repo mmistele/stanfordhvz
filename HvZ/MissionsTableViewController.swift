@@ -7,89 +7,83 @@
 //
 
 import UIKit
+import Firebase
 
-class MissionsTableViewController: CoreDataTableViewController {
+class MissionsTableViewController: FirebaseTableViewController {
+
+    @IBOutlet weak var createMissionButton: UIBarButtonItem!
+    
+    @IBAction func createMissionTapped(sender: UIBarButtonItem) {
+        let newMissionRef = ref.child("missions").childByAutoId()
+        newMissionId = newMissionRef.key
+        performSegueWithIdentifier(Storyboard.CreateMissionSegueIdentifier, sender: nil)
+    }
+    
+    var newMissionId: String?
+    
+    private struct Storyboard {
+        static let MissionCellIdentifier = "Mission"
+        static let DetailSegueIdentifier = "Show Mission"
+        static let CreateMissionSegueIdentifier = "Create Mission"
+        static let UnpublishedText = "Draft"
+        static let NewMissionControllerTitle = "New Mission"
+    }
+    
+    // These strings should probably come from a remote config
+    private struct FIRKeys {
+        static let Title = "title"
+        static let Published = "published"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), sectionNameKey: nil, prototypeReuseIdentifier: Storyboard.MissionCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
+            
+            let missionDict = snapshot.value as! [String : AnyObject]
+            cell.textLabel?.text = missionDict[FIRKeys.Title] as? String
+            if let published = missionDict[FIRKeys.Published] as? Bool where !published {
+                cell.detailTextLabel?.text = Storyboard.UnpublishedText
+            } else {
+                cell.detailTextLabel?.text = nil
+            }
+        })
+        
+        dataSource?.filterUpdated()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - FilteredFirebaseTableViewDataSourceDelegate
+    
+    override func includeSnapshot(snapshot: FIRDataSnapshot) -> Bool {
+        let missionDict = snapshot.value as! [String : AnyObject]
+        if let published = missionDict[FIRKeys.Published] as? Bool {
+            return published
+        }
+        else {
+            return false
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    override func getQuery() -> FIRDatabaseQuery {
+        return ref.child("missions")
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == Storyboard.DetailSegueIdentifier {
+            if let missionViewController = segue.destinationViewController.contentViewController as? MissionViewController, missionCell = sender as? UITableViewCell {
+                missionViewController.title = missionCell.textLabel?.text
+            }
+        } else if segue.identifier == Storyboard.CreateMissionSegueIdentifier {
+            if let editMissionViewController = segue.destinationViewController.contentViewController as? EditMissionViewController {
+                editMissionViewController.title = Storyboard.NewMissionControllerTitle
+                editMissionViewController.missionId = newMissionId!
+            }
+        }
     }
-    */
 
 }

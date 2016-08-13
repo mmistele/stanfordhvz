@@ -14,6 +14,7 @@
 		C9272F2C1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */; };
 		C9272F2E1D5B71D800D00F3F /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */; };
 		C9272F301D5B8CF300D00F3F /* TableDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2F1D5B8CF300D00F3F /* TableDataModel.swift */; };
+		C9272F321D5FC94300D00F3F /* EditMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F311D5FC94300D00F3F /* EditMissionViewController.swift */; };
 		C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3561D0117C2007D76CD /* AppDelegate.swift */; };
 		C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956B35A1D0117C2007D76CD /* Main.storyboard */; };
 		C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */; };
@@ -95,6 +96,7 @@
 		C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterFirstSplitViewController.swift; sourceTree = "<group>"; };
 		C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 		C9272F2F1D5B8CF300D00F3F /* TableDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataModel.swift; sourceTree = "<group>"; };
+		C9272F311D5FC94300D00F3F /* EditMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMissionViewController.swift; sourceTree = "<group>"; };
 		C956B3531D0117C2007D76CD /* HvZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HvZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B3561D0117C2007D76CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956B35B1D0117C2007D76CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		C956B3551D0117C2007D76CD /* HvZ */ = {
 			isa = PBXGroup;
 			children = (
+				C9272F311D5FC94300D00F3F /* EditMissionViewController.swift */,
 				C990C2FF1D037A6A000547AF /* Core Data */,
 				C990C2FC1D035666000547AF /* Offline Demo Data */,
 				C956B3791D029B5B007D76CD /* Supporting Files */,
@@ -536,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C990C3231D037A87000547AF /* Team.swift in Sources */,
+				C9272F321D5FC94300D00F3F /* EditMissionViewController.swift in Sources */,
 				C990C3151D037A87000547AF /* Mission.swift in Sources */,
 				C956B37F1D02C85A007D76CD /* LoginViewController.swift in Sources */,
 				C9792EF71D53E3EB00F91AA2 /* TitleScreenViewController.swift in Sources */,

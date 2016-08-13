@@ -577,7 +577,7 @@
                                     <constraint firstItem="MY8-2J-5ld" firstAttribute="height" secondItem="teC-6Z-LQO" secondAttribute="height" id="NCf-hK-4ZN"/>
                                 </constraints>
                                 <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="238" y="121" width="325" height="357"/>
+                                    <rect key="frame" x="238" y="121" width="312" height="354"/>
                                 </variation>
                             </stackView>
                         </subviews>
