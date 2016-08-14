@@ -17,6 +17,4 @@ extension MissionWaypoint {
     @NSManaged var images: NSObject?
     @NSManaged var latitude: NSNumber?
     @NSManaged var longitude: NSNumber?
-    @NSManaged var mission: Mission?
-
 }

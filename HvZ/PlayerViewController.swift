@@ -148,7 +148,7 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
     
     private func updateUI() {
         if let playerObject = player {
-            var teamName: String?
+            var team: Team?
             var firstName: String?
             var lastName: String?
             var clan: Clan?
@@ -158,7 +158,7 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
             
             // Only being called once, not kept as a property, so retain cycle not an issue
             // This used to performBlockAndWait...
-            teamName = playerObject.team
+            team = playerObject.team
             firstName = playerObject.firstName
             lastName = playerObject.lastName
             clan = playerObject.clan
@@ -176,7 +176,7 @@ class PlayerViewController: UITableViewController, UIImagePickerControllerDelega
                 nameLabel.text = firstName! + " " + lastName!
             }
             
-            teamLabel.text = "Team: \(teamName!)"
+            teamLabel.text = "Team: \(team!.rawValue)"
             
             if clan != nil {
                 clanLabel.text = "Clan: \(clan!.name!)"

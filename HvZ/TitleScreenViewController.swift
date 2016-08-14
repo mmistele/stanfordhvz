@@ -90,6 +90,9 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
             } else if user != nil {
                 let userRef = FIRDatabase.database().reference().child("users").child(user!.uid)
                 userRef.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                    
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    
                     if snapshot.value == nil || snapshot.value is NSNull {
                         // User is new!
                         let userValues: [String: AnyObject] = [
@@ -98,7 +101,12 @@ class TitleScreenViewController: UIViewController, GIDSignInDelegate, GIDSignInU
                             "email": email
                         ]
                         userRef.updateChildValues(userValues)
+                        appDelegate.currentUser = Player(uid: user!.uid, dict: userValues)
+                        
                         self!.loadDummyDataForUserWithId(user!.uid)
+
+                    } else {
+                        appDelegate.currentUser = Player(snapshot: snapshot)
                     }
                     
                     self!.performSegueWithIdentifier(Storyboard.SignInSegueIdentifier, sender: nil)

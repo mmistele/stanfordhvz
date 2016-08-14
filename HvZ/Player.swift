@@ -26,7 +26,7 @@ class Player {
     var phoneNumber: String?
     var tagCount: Int = 0
     var tags: [Tag] = []
-    var team: String = "humans"
+    var team: Team = Team.Humans
     
     var fullName: String {
         get {
@@ -102,7 +102,7 @@ class Player {
         if let tags = dict["tags"] as? [Tag] {
             self.tags = tags
         }
-        if let team = dict["team"] as? String {
+        if let team = dict["team"] as? Team {
             self.team = team
         }
     }

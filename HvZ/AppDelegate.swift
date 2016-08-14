@@ -15,7 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var currentUser: Player?
+    var currentUser: Player? /* {
+        // Not working yet
+        didSet {
+            if let user = currentUser, playerId = FIRAuth.auth()?.currentUser?.uid {
+                let playerRef = FIRDatabase.database().reference().child("players").child(playerId)
+                // TODO: Remove this handler when no longer needed
+                let playerHandle = playerRef.observeEventType(.Value, withBlock: { (snapshot) in
+                    if snapshot.value is [String : AnyObject] {
+                        self.currentUser! = Player(snapshot: snapshot)
+                    }
+                })
+            }
+        }
+    } */
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,16 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         
-//        try! FIRAuth.auth()?.signOut()
-//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        
-//        if FIRAuth.auth()?.currentUser == nil {
-//            let signupNavController = UIStoryboard(name: "Login", bundle: nil).instantiateViewControllerWithIdentifier("Signup Navigation Controller") as! SignupNavigationController
-//            window?.rootViewController = signupNavController
-//        } else {
-//            let mainNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Main Navigation Controller")
-//            window?.rootViewController = mainNavController
-//        }
+        //        try! FIRAuth.auth()?.signOut()
+        //        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        //
+        //        if FIRAuth.auth()?.currentUser == nil {
+        //            let signupNavController = UIStoryboard(name: "Login", bundle: nil).instantiateViewControllerWithIdentifier("Signup Navigation Controller") as! SignupNavigationController
+        //            window?.rootViewController = signupNavController
+        //        } else {
+        //            let mainNavController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Main Navigation Controller")
+        //            window?.rootViewController = mainNavController
+        //        }
         
         return true
     }

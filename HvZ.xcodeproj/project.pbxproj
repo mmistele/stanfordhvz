@@ -14,7 +14,8 @@
 		C9272F2C1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */; };
 		C9272F2E1D5B71D800D00F3F /* SortedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */; };
 		C9272F301D5B8CF300D00F3F /* TableDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F2F1D5B8CF300D00F3F /* TableDataModel.swift */; };
-		C9272F321D5FC94300D00F3F /* EditMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F311D5FC94300D00F3F /* EditMissionViewController.swift */; };
+		C9272F321D5FC94300D00F3F /* AddMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F311D5FC94300D00F3F /* AddMissionViewController.swift */; };
+		C9272F341D60166E00D00F3F /* EditMissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9272F331D60166E00D00F3F /* EditMissionViewController.swift */; };
 		C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3561D0117C2007D76CD /* AppDelegate.swift */; };
 		C956B35C1D0117C2007D76CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C956B35A1D0117C2007D76CD /* Main.storyboard */; };
 		C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */; };
@@ -42,7 +43,6 @@
 		C9792EF71D53E3EB00F91AA2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */; };
 		C97930991D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97930981D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift */; };
 		C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */; };
-		C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */; };
 		C990C3151D037A87000547AF /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3011D037A87000547AF /* Mission.swift */; };
 		C990C3181D037A87000547AF /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3041D037A87000547AF /* Tag+CoreDataProperties.swift */; };
 		C990C3191D037A87000547AF /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3051D037A87000547AF /* Tag.swift */; };
@@ -54,7 +54,6 @@
 		C990C31F1D037A87000547AF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30B1D037A87000547AF /* Message.swift */; };
 		C990C3201D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30C1D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift */; };
 		C990C3211D037A87000547AF /* MissionWaypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30D1D037A87000547AF /* MissionWaypoint.swift */; };
-		C990C3221D037A87000547AF /* Team+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30E1D037A87000547AF /* Team+CoreDataProperties.swift */; };
 		C990C3231D037A87000547AF /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C30F1D037A87000547AF /* Team.swift */; };
 		C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */; };
 		C990C3271D037A87000547AF /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990C3131D037A87000547AF /* Conversation.swift */; };
@@ -96,7 +95,8 @@
 		C9272F2B1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterFirstSplitViewController.swift; sourceTree = "<group>"; };
 		C9272F2D1D5B71D800D00F3F /* SortedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedDictionary.swift; sourceTree = "<group>"; };
 		C9272F2F1D5B8CF300D00F3F /* TableDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataModel.swift; sourceTree = "<group>"; };
-		C9272F311D5FC94300D00F3F /* EditMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMissionViewController.swift; sourceTree = "<group>"; };
+		C9272F311D5FC94300D00F3F /* AddMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMissionViewController.swift; sourceTree = "<group>"; };
+		C9272F331D60166E00D00F3F /* EditMissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMissionViewController.swift; sourceTree = "<group>"; };
 		C956B3531D0117C2007D76CD /* HvZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HvZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C956B3561D0117C2007D76CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C956B35B1D0117C2007D76CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,7 +129,6 @@
 		C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
 		C97930981D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredFirebaseTableViewDataSource.swift; sourceTree = "<group>"; };
 		C990C2FD1D035931000547AF /* ChooseProfilePicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseProfilePicViewController.swift; sourceTree = "<group>"; };
-		C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Mission+CoreDataProperties.swift"; path = "Core Data/Mission+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3011D037A87000547AF /* Mission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mission.swift; path = "Core Data/Mission.swift"; sourceTree = "<group>"; };
 		C990C3041D037A87000547AF /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "Core Data/Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3051D037A87000547AF /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = "Core Data/Tag.swift"; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		C990C30B1D037A87000547AF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "Core Data/Message.swift"; sourceTree = "<group>"; };
 		C990C30C1D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "MissionWaypoint+CoreDataProperties.swift"; path = "Core Data/MissionWaypoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C30D1D037A87000547AF /* MissionWaypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionWaypoint.swift; path = "Core Data/MissionWaypoint.swift"; sourceTree = "<group>"; };
-		C990C30E1D037A87000547AF /* Team+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Team+CoreDataProperties.swift"; path = "Core Data/Team+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C30F1D037A87000547AF /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Team.swift; path = "Core Data/Team.swift"; sourceTree = "<group>"; };
 		C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Conversation+CoreDataProperties.swift"; path = "Core Data/Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C990C3131D037A87000547AF /* Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conversation.swift; path = "Core Data/Conversation.swift"; sourceTree = "<group>"; };
@@ -228,7 +226,8 @@
 		C956B3551D0117C2007D76CD /* HvZ */ = {
 			isa = PBXGroup;
 			children = (
-				C9272F311D5FC94300D00F3F /* EditMissionViewController.swift */,
+				C9272F331D60166E00D00F3F /* EditMissionViewController.swift */,
+				C9272F311D5FC94300D00F3F /* AddMissionViewController.swift */,
 				C990C2FF1D037A6A000547AF /* Core Data */,
 				C990C2FC1D035666000547AF /* Offline Demo Data */,
 				C956B3791D029B5B007D76CD /* Supporting Files */,
@@ -327,7 +326,6 @@
 				C956B35D1D0117C2007D76CD /* HvZ.xcdatamodeld */,
 				C990C3281D037DCB000547AF /* CoreDataTableViewController.swift */,
 				C990C3391D03C09C000547AF /* Player.swift */,
-				C990C3001D037A87000547AF /* Mission+CoreDataProperties.swift */,
 				C990C3011D037A87000547AF /* Mission.swift */,
 				C990C3041D037A87000547AF /* Tag+CoreDataProperties.swift */,
 				C990C3051D037A87000547AF /* Tag.swift */,
@@ -339,7 +337,6 @@
 				C990C30B1D037A87000547AF /* Message.swift */,
 				C990C30C1D037A87000547AF /* MissionWaypoint+CoreDataProperties.swift */,
 				C990C30D1D037A87000547AF /* MissionWaypoint.swift */,
-				C990C30E1D037A87000547AF /* Team+CoreDataProperties.swift */,
 				C990C30F1D037A87000547AF /* Team.swift */,
 				C990C3121D037A87000547AF /* Conversation+CoreDataProperties.swift */,
 				C990C3131D037A87000547AF /* Conversation.swift */,
@@ -539,7 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C990C3231D037A87000547AF /* Team.swift in Sources */,
-				C9272F321D5FC94300D00F3F /* EditMissionViewController.swift in Sources */,
+				C9272F321D5FC94300D00F3F /* AddMissionViewController.swift in Sources */,
 				C990C3151D037A87000547AF /* Mission.swift in Sources */,
 				C956B37F1D02C85A007D76CD /* LoginViewController.swift in Sources */,
 				C9792EF71D53E3EB00F91AA2 /* TitleScreenViewController.swift in Sources */,
@@ -549,6 +546,7 @@
 				C990C31B1D037A87000547AF /* Clan.swift in Sources */,
 				C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */,
 				C990C3271D037A87000547AF /* Conversation.swift in Sources */,
+				C9272F341D60166E00D00F3F /* EditMissionViewController.swift in Sources */,
 				C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */,
 				C990C33D1D03D999000547AF /* Badge.swift in Sources */,
 				C9272F281D5A6FA900D00F3F /* ChatTableViewCell.swift in Sources */,
@@ -578,7 +576,6 @@
 				C990C2FE1D035931000547AF /* ChooseProfilePicViewController.swift in Sources */,
 				C990C3181D037A87000547AF /* Tag+CoreDataProperties.swift in Sources */,
 				C9272F2C1D5A9C3600D00F3F /* MasterFirstSplitViewController.swift in Sources */,
-				C990C3221D037A87000547AF /* Team+CoreDataProperties.swift in Sources */,
 				C956B3851D02CD3A007D76CD /* SignupSUNetIDViewController.swift in Sources */,
 				C9A7D8861D041CBE00D7B2A4 /* BadgePopoverViewController.swift in Sources */,
 				C956B3811D02CAB2007D76CD /* SignupNameViewController.swift in Sources */,
@@ -592,7 +589,6 @@
 				C956B3571D0117C2007D76CD /* AppDelegate.swift in Sources */,
 				C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */,
 				C9272F301D5B8CF300D00F3F /* TableDataModel.swift in Sources */,
-				C990C3141D037A87000547AF /* Mission+CoreDataProperties.swift in Sources */,
 				C990C33B1D03C09C000547AF /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
