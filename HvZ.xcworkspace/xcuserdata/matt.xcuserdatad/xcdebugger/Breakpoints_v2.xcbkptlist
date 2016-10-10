@@ -186,7 +186,7 @@
                   moduleName = "HvZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt/Developer/HvZ/HvZ/TitleScreenViewController.swift"
-                  timestampString = "492841138.602201"
+                  timestampString = "496175293.674979"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -201,7 +201,7 @@
                   moduleName = "HvZ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matt/Developer/HvZ/HvZ/TitleScreenViewController.swift"
-                  timestampString = "492841138.60238"
+                  timestampString = "496175293.675129"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -465,6 +465,70 @@
             endingLineNumber = "104"
             landmarkName = "signIn(_:didSignInForUser:withError:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HvZ/MissionsTableViewController.swift"
+            timestampString = "496174972.601884"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HvZ.MissionsTableViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "HvZ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt/Developer/HvZ/HvZ/MissionsTableViewController.swift"
+                  timestampString = "496175117.554867"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HvZ.MissionsTableViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "HvZ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/matt/Developer/HvZ/HvZ/MissionsTableViewController.swift"
+                  timestampString = "496175117.555058"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "230">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HvZ/MissionViewController.swift"
+            timestampString = "496175293.293713"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "MissionViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

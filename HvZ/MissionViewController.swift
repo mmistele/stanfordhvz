@@ -7,20 +7,52 @@
 //
 
 import UIKit
+import Firebase
 
 class MissionViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var descriptionTextView: UITextView! {
+        didSet {
+            descriptionTextView.text = mission.descriptionText
+            title = mission.title
+        }
     }
     
+    lazy var ref = FIRDatabase.database().reference()
+    
+    // Good to also set up a Firebase listener for changes, in case the data here gets stale.
+    // (Would it violate MVC to have the Mission model listen for its own changes in Firebase?)
+    var mission: Mission! /* {
+        didSet {
+            descriptionTextView.text = mission.descriptionText
+            title = mission.title
+        }
+    } */
+    
+    // MARK: - Unwind Actions
+    
+    @IBAction func doneEditingMission(segue: UIStoryboardSegue) {
+        
+        if let editMissionViewController = segue.sourceViewController.contentViewController as? EditMissionViewController {
+            if let editedMission = editMissionViewController.mission {
+                mission = editedMission
+                
+                let missionUpdateValues: [String: AnyObject] = [
+                    Mission.FIRKeys.Title : mission.title,
+                    Mission.FIRKeys.PublishedToHumans : mission.publishedToHumans,
+                    Mission.FIRKeys.PublishedToZombies : mission.publishedToZombies,
+                    Mission.FIRKeys.Description : mission.descriptionText
+                ]
+                
+                ref.child("missions").child(mission.firebaseId).updateChildValues(missionUpdateValues)
+            }
+        }
+    }
+    
+    @IBAction func cancelEditingMission(segue: UIStoryboardSegue) {
+        // Do nothing
+    }
+
 
     /*
     // MARK: - Navigation

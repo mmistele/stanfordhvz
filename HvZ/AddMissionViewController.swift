@@ -37,6 +37,7 @@ class AddMissionViewController: KeyboardAdaptiveViewController, UITextViewDelega
     
     
     // MARK: Text Field and Text View Events
+    
     @IBAction func titleChanged(sender: UITextField) {
         if let title = titleField.text where !title.isEmpty {
             doneButton.enabled = true
@@ -47,16 +48,13 @@ class AddMissionViewController: KeyboardAdaptiveViewController, UITextViewDelega
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == Storyboard.SaveSegueIdentifier {
             let missionRef = FIRDatabase.database().reference().child("missions").childByAutoId()
             let missionId = missionRef.key
-            mission = Mission(id: missionId)
+            mission = Mission(uid: missionId)
             mission?.title = titleField.text!
-            mission?.description = descriptionTextView.text
+            mission?.descriptionText = descriptionTextView.text
             mission?.publishedToHumans = publishToHumansSwitch.on
             mission?.publishedToHumans = publishToZombiesSwitch.on
 

@@ -39,6 +39,7 @@
 		C956B39E1D02DD09007D76CD /* MissionMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */; };
 		C956B3A11D02DFF1007D76CD /* ClanCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */; };
 		C956B3A31D02E095007D76CD /* ClanDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */; };
+		C966563C1D7B7241006E5439 /* MissionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C966563B1D7B7241006E5439 /* MissionTableViewCell.swift */; };
 		C9792EF21D52DB7800F91AA2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9792EF11D52DB7800F91AA2 /* Login.storyboard */; };
 		C9792EF71D53E3EB00F91AA2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */; };
 		C97930991D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97930981D567C0100F91AA2 /* FilteredFirebaseTableViewDataSource.swift */; };
@@ -124,6 +125,7 @@
 		C956B39D1D02DD09007D76CD /* MissionMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionMapViewController.swift; sourceTree = "<group>"; };
 		C956B3A01D02DFF1007D76CD /* ClanCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClanCollectionViewController.swift; path = ../ClanCollectionViewController.swift; sourceTree = "<group>"; };
 		C956B3A21D02E095007D76CD /* ClanDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClanDetailTableViewController.swift; sourceTree = "<group>"; };
+		C966563B1D7B7241006E5439 /* MissionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionTableViewCell.swift; sourceTree = "<group>"; };
 		C9792EF11D52DB7800F91AA2 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C9792EF31D5392DA00F91AA2 /* HvZ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HvZ-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9792EF61D53E3EB00F91AA2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				C956B3991D02DB06007D76CD /* RulesPageViewController.swift */,
 				C956B3911D02D3A2007D76CD /* MissionViewController.swift */,
 				C956B38F1D02D386007D76CD /* MissionsTableViewController.swift */,
+				C966563B1D7B7241006E5439 /* MissionTableViewCell.swift */,
 				C956B38C1D02CF42007D76CD /* Old Login/Signup */,
 			);
 			path = HvZ;
@@ -545,6 +548,7 @@
 				C990C32D1D03810A000547AF /* PlayersTableViewCell.swift in Sources */,
 				C990C31B1D037A87000547AF /* Clan.swift in Sources */,
 				C990C3261D037A87000547AF /* Conversation+CoreDataProperties.swift in Sources */,
+				C966563C1D7B7241006E5439 /* MissionTableViewCell.swift in Sources */,
 				C990C3271D037A87000547AF /* Conversation.swift in Sources */,
 				C9272F341D60166E00D00F3F /* EditMissionViewController.swift in Sources */,
 				C956B35F1D0117C2007D76CD /* HvZ.xcdatamodeld in Sources */,

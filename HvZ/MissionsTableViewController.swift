@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class MissionsTableViewController: FirebaseTableViewController {
-
+    
     @IBOutlet weak var createMissionButton: UIBarButtonItem!
     
     var newMissionId: String?
@@ -19,30 +19,16 @@ class MissionsTableViewController: FirebaseTableViewController {
         static let MissionCellIdentifier = "Mission"
         static let DetailSegueIdentifier = "Show Mission"
         static let CreateMissionSegueIdentifier = "Create Mission"
-        static let UnpublishedText = "Draft"
         static let NewMissionControllerTitle = "New Mission"
     }
     
-    // These strings should probably come from a remote config
-    private struct FIRKeys {
-        static let Title = "title"
-        static let PublishedToHumans = "publishedToHumans"
-        static let PublishedToZombies = "publishedToZombies"
-        static let Description = "description"
-        
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = FilteredFirebaseTableViewDataSource(query: getQuery(), sectionNameKey: nil, prototypeReuseIdentifier: Storyboard.MissionCellIdentifier, tableView: tableView, delegate: self, populateCellBlock: { (cell, snapshot) in
             
-            let missionDict = snapshot.value as! [String : AnyObject]
-            cell.textLabel?.text = missionDict[FIRKeys.Title] as? String
-            if let publishedToHumans = missionDict[FIRKeys.PublishedToHumans] as? Bool, publishedToZombies = missionDict[FIRKeys.PublishedToZombies] as? Bool where !publishedToHumans && !publishedToZombies {
-                cell.detailTextLabel?.text = Storyboard.UnpublishedText
-            } else {
-                cell.detailTextLabel?.text = nil
+            if let missionDict = snapshot.value as? [String : AnyObject], missionCell = cell as? MissionTableViewCell {
+                missionCell.mission = Mission(uid: snapshot.key, dict: missionDict)
             }
         })
         
@@ -60,13 +46,13 @@ class MissionsTableViewController: FirebaseTableViewController {
             if user.isModerator {
                 return true
             }
-            else if let publishedToHumans = missionDict[FIRKeys.PublishedToHumans] as? Bool where user.team == Team.Humans {
+            else if let publishedToHumans = missionDict[Mission.FIRKeys.PublishedToHumans] as? Bool where user.team == Team.Humans {
                 return publishedToHumans
             }
-            else if let publishedToZombies = missionDict[FIRKeys.PublishedToHumans] as? Bool where user.team == Team.Zombies {
+            else if let publishedToZombies = missionDict[Mission.FIRKeys.PublishedToHumans] as? Bool where user.team == Team.Zombies {
                 return publishedToZombies
                 
-            } else if let publishedToHumans = missionDict[FIRKeys.PublishedToHumans] as? Bool, publishedToZombies = missionDict[FIRKeys.PublishedToHumans] as? Bool  {
+            } else if let publishedToHumans = missionDict[Mission.FIRKeys.PublishedToHumans] as? Bool, publishedToZombies = missionDict[Mission.FIRKeys.PublishedToHumans] as? Bool  {
                 return publishedToZombies && publishedToHumans
             }
         }
@@ -78,16 +64,17 @@ class MissionsTableViewController: FirebaseTableViewController {
     }
     
     // MARK: - Unwind Actions
+    
     @IBAction func saveNewMission(segue: UIStoryboardSegue) {
         
         if let newMissionViewController = segue.sourceViewController.contentViewController as? AddMissionViewController {
             if let mission = newMissionViewController.mission {
                 
                 let missionUpdateValues: [String: AnyObject] = [
-                    FIRKeys.Title : mission.title,
-                    FIRKeys.PublishedToHumans : mission.publishedToHumans,
-                    FIRKeys.PublishedToZombies : mission.publishedToZombies,
-                    FIRKeys.Description : mission.description
+                    Mission.FIRKeys.Title : mission.title,
+                    Mission.FIRKeys.PublishedToHumans : mission.publishedToHumans,
+                    Mission.FIRKeys.PublishedToZombies : mission.publishedToZombies,
+                    Mission.FIRKeys.Description : mission.descriptionText
                 ]
                 
                 ref.child("missions").child(mission.firebaseId).updateChildValues(missionUpdateValues)
@@ -98,17 +85,17 @@ class MissionsTableViewController: FirebaseTableViewController {
     @IBAction func cancelNewMission(segue: UIStoryboardSegue) {
         // Do nothing special
     }
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == Storyboard.DetailSegueIdentifier {
-            if let missionViewController = segue.destinationViewController.contentViewController as? MissionViewController, missionCell = sender as? UITableViewCell {
-                missionViewController.title = missionCell.textLabel?.text
+            if let missionViewController = segue.destinationViewController.contentViewController as? MissionViewController, missionCell = sender as? MissionTableViewCell {
+                missionViewController.mission = missionCell.mission
             }
         } else if segue.identifier == Storyboard.CreateMissionSegueIdentifier {
             if let editMissionViewController = segue.destinationViewController.contentViewController as? EditMissionViewController {
@@ -116,5 +103,5 @@ class MissionsTableViewController: FirebaseTableViewController {
             }
         }
     }
-
+    
 }
